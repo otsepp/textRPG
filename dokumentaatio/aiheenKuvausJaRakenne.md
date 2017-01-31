@@ -7,11 +7,10 @@
 
 -Pelaajalle annetaan tilanne, ja siihen liittyviä liikkeitä
 
-	-Pelaaja voi tilanteiden kautta tavata vihollisia
+-Pelaaja voi tilanteiden kautta tavata vihollisia
 
-		-jos pelaaja tapaa vihollisen, hän joutuu taisteluun
+-jos pelaaja tapaa vihollisen, hän joutuu vuoroittaiseen taisteluun
 
-			-vuorottainen
 
 		
 ![Luokkakaavio](dokumentaatio/luokkakaavio.png)
