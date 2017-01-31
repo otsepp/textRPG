@@ -3,16 +3,18 @@
 
 -Tekstipohjainen roolipeli
 
+-pelaajalla on tavaroita
+
 -Pelaajalle annetaan tilanne, ja siihen liittyviä liikkeitä
 
--Pelaajalla on hp ja inventory
+	-Pelaaja voi tilanteiden kautta tavata vihollisia
 
--Pelaaja voi tilanteiden kautta tavata vihollisia, tai ystävällisiä pelihahmoja
+		-jos pelaaja tapaa vihollisen, hän joutuu taisteluun
 
-	-jos pelaaja tapaa vihollisen, hän joutuu taisteluun
+			-vuorottainen
 
-		-vuorottainen
+		
+![Luokkakaavio](dokumentaatio/luokkakaavio.png)
 
-	-jos pelaaja tapaa ei-vihollisen, hän voi keskustella tämän kanssa
 
 
