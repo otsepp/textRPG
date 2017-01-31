@@ -13,7 +13,7 @@
 
 
 		
-![Luokkakaavio](luokkakaavio.png)
+![Luokkakaavio](luokkakaavio.png "Alkuvaiheen luokkakaavio")
 
 
 
