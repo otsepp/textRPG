@@ -13,7 +13,7 @@
 
 
 		
-![Luokkakaavio](dokumentaatio/luokkakaavio.png)
+![Luokkakaavio](luokkakaavio.png)
 
 
 
