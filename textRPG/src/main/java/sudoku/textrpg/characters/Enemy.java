@@ -1,6 +1,7 @@
 
 package sudoku.textrpg.characters;
 
-public class Enemy {
+//Marker interface?
+public interface Enemy {
     
 }

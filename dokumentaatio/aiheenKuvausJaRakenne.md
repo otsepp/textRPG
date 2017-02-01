@@ -1,19 +1,15 @@
 
 **textRPG**
 
--Tekstipohjainen roolipeli
+TextRPG on tekstipohjainen roolipeli. Peli etenee erilaisten tilanteiden kautta, jotka ovat ilmaistu tekstill‰, ja
+joihin pelaaja vastaa annetuilla komennoilla. Tilanteita on esimerkiksi yhteenotto vihollisen kanssa tai saapuminen paikkaan, jossa t‰ytyy valita
+etenemissuunta.
+Yhteenoton kautta pelaaja joutuu taisteluun vihollisen kanssa. Taistelut ovat vuoroittaisia, joissa omalla
+vuorollaan pelaaja valitsee taistelukomennon.
+Pelaajalla on kokoelma tavaroita, joita h‰n voi k‰ytt‰‰. 
 
--pelaajalla on tavaroita
-
--Pelaajalle annetaan tilanne, ja siihen liittyvi‰ liikkeit‰
-
--Pelaaja voi tilanteiden kautta tavata vihollisia
-
--jos pelaaja tapaa vihollisen, h‰n joutuu vuoroittaiseen taisteluun
-
-
-		
-![Luokkakaavio](luokkakaavio.png "Alkuvaiheen luokkakaavio")
+**Alkuvaiheen luokkakaavio**	
+![Luokkakaavio](luokkakaavio.png)
 
 
 
