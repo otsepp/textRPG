@@ -1,21 +1,23 @@
 
 package sudoku.textrpg.commands;
 
+import java.util.List;
+
 public class CommandReturnValues {
     
-    private String message;
-    private Command[] newCommands;
+    private String endMessage;
+    private List<Command> newCommands;
     
-    public CommandReturnValues(String message, Command[] newCommands) {
-        this.message = message;
+    public CommandReturnValues(String endMessage, List<Command> newCommands) {
+        this.endMessage = endMessage;
         this.newCommands = newCommands;
     }
     
     public String getMessage() {
-        return message;
+        return endMessage;
     }
     
-    public Command[] getCommands() {
+    public List<Command> getCommands() {
         return newCommands;
     }
     

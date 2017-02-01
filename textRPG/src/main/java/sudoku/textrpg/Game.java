@@ -3,13 +3,14 @@ package sudoku.textrpg;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.event.Event;
 import sudoku.textrpg.characters.Player;
+import sudoku.textrpg.game_events.GameEvent;
+import sudoku.textrpg.game_events.StraightPathEvent;
 
 public class Game {
     
     private Player player;
-    private List<Event> events;
+    private List<GameEvent> events;
     
     public Game() {
         player = new Player("Player");
@@ -17,7 +18,17 @@ public class Game {
     }
     
     public void start() {
+        System.out.println("Welcome...\n");
+        createEvents();
         
+        
+        for (GameEvent e : events) {
+            e.initiateEvent();
+        }
+    }
+    
+    public void createEvents() {
+        this.events.add(new StraightPathEvent());
     }
     
 }
