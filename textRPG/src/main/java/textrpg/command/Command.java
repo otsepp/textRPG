@@ -1,5 +1,5 @@
 
-package textrpg.commands;
+package textrpg.command;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
 
-package textrpg.game_events;
+package textrpg.game_event;
 
 import java.util.ArrayList;
 import java.util.List;
-import textrpg.commands.Command;
-import textrpg.commands.CommandReturnValues;
+import textrpg.command.Command;
+import textrpg.command.CommandReturnValues;
 
 public abstract class GameEvent {
     protected String startMessage;

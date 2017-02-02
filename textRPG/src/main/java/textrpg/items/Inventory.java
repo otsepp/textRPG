@@ -21,4 +21,8 @@ public class Inventory {
         return this.items;
     }
     
+    public void setEquippedWeapon(Weapon weapon) {
+        this.equippedWeapon = weapon;
+    }
+    
 }

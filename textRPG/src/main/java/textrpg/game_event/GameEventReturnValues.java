@@ -1,5 +1,5 @@
 
-package textrpg.game_events;
+package textrpg.game_event;
 
 import java.util.List;
 

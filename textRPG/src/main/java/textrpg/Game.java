@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import textrpg.characters.Player;
-import textrpg.commands.Command;
-import textrpg.game_events.BattleEvent;
-import textrpg.game_events.EndEvent;
-import textrpg.game_events.GameEvent;
-import textrpg.game_events.GameEventReturnValues;
-import textrpg.game_events.StraightPathEvent;
+import textrpg.command.Command;
+import textrpg.events.battle_event.BattleEvent;
+import textrpg.events.ending_event.EndingEvent;
+import textrpg.game_event.GameEvent;
+import textrpg.game_event.GameEventReturnValues;
+import textrpg.events.straight_path_event.StraightPathEvent;
 
 public class Game {
     
@@ -91,7 +91,7 @@ public class Game {
     public void createEvents() {
         this.events.add(new StraightPathEvent());
         this.events.add(new BattleEvent(this.player));
-        this.events.add(new EndEvent());
+        this.events.add(new EndingEvent());
     }
     
 }

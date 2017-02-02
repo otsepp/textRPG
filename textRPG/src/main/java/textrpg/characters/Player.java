@@ -6,6 +6,7 @@ import textrpg.items.Inventory;
 public class Player extends Character {
     
     private Inventory inventory;
+    private int totalDamage;
     
     public Player(String name) {
         super(name);
@@ -14,10 +15,19 @@ public class Player extends Character {
         this.updateDamage();
     }
     
-    public void updateDamage() {
-        int oldDamage = super.getDamage();
-        int equippedWeaponDamage = this.inventory.getEquippedWeapon().getDamage();
-        super.setDamage(oldDamage + equippedWeaponDamage);
+    
+    public int getTotalDamage() {
+         return this.totalDamage;
+     }
+     
+     public Inventory getInventory() {
+        return this.inventory;
+     }
+     
+     public void updateDamage() {
+        int weaponDamage = this.inventory.getEquippedWeapon().getDamage();
+        this.totalDamage = super.getBaseDamage() + weaponDamage;
     }
     
+   
 }
