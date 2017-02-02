@@ -7,11 +7,11 @@ import java.util.Scanner;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.Command;
-import textrpg.events.battle_event.BattleEvent;
-import textrpg.events.ending_event.EndingEvent;
-import textrpg.game_event.GameEvent;
-import textrpg.game_event.GameEventReturnValues;
-import textrpg.events.straight_path_event.StraightPathEvent;
+import textrpg.events.battle.BattleEvent;
+import textrpg.events.ending.EndingEvent;
+import textrpg.event.GameEvent;
+import textrpg.event.GameEventReturnValues;
+import textrpg.events.straightpath.StraightPathEvent;
 
 public class Game {
     
@@ -46,13 +46,13 @@ public class Game {
         boolean continueEvent = true;
         while (continueEvent) {
             
-             List<Command> commands = e.getCommands();
-             for (int i = 0; i < commands.size(); i++) {
-                 System.out.println((i + 1) + ". " + commands.get(i).getDescription());
-             }
-             System.out.println("");
-             continueEvent = chooseAndExecuteCommand(e, commands);
-             System.out.println("");
+            List<Command> commands = e.getCommands();
+            for (int i = 0; i < commands.size(); i++) {
+                System.out.println((i + 1) + ". " + commands.get(i).getDescription());
+            }
+            System.out.println("");
+            continueEvent = chooseAndExecuteCommand(e, commands);
+            System.out.println("");
         }
         
         if (player.getHealth() > 0) {
@@ -63,36 +63,36 @@ public class Game {
     }
     
     public boolean chooseAndExecuteCommand(GameEvent e, List<Command> commands) {
-            while (true) {
-                 System.out.print("Choose command: ");
-                  int commandId;
-                  
-                  if (s.hasNextInt()) {
-                      commandId = s.nextInt();
-                  } else {
-                       System.out.println("Please enter a number.");
-                       s.next();
-                       continue;
-                  }
-                  GameEventReturnValues ret = e.initiateEvent(commandId - 1);
-                  
-                  if (ret != null) {
-                      System.out.println("");
-                      for (String msg : ret.getMessages()) {
-                          System.out.println(msg);
-                      }
-                      return ret.getEventContinues();
-                      
-                  } else {
-                      System.out.println("Invalid command id.");
-                  }
-             }
+        while (true) {
+            System.out.print("Choose command: ");
+            int commandId;
+            
+            if (s.hasNextInt()) {
+                commandId = s.nextInt();
+            } else {
+                System.out.println("Please enter a number.");
+                s.next();
+                continue;
+            }
+            GameEventReturnValues ret = e.initiateEvent(commandId - 1);
+            
+            if (ret != null) {
+                System.out.println("");
+                for (String msg : ret.getMessages()) {
+                    System.out.println(msg);
+                }
+                return ret.getEventContinues();
+            
+            } else {
+                System.out.println("Invalid command id.");
+            }
         }
+    }
     
     public void createEvents() {
         this.events.add(new StraightPathEvent());
         this.events.add(new BattleEvent(this.player, new Enemy("Bandit")));
         this.events.add(new EndingEvent());
     }
-    
+
 }

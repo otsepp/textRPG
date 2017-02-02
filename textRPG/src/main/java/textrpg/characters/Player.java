@@ -17,14 +17,14 @@ public class Player extends Character {
     
     
     public int getTotalDamage() {
-         return this.totalDamage;
-     }
-     
-     public Inventory getInventory() {
+        return this.totalDamage;
+    }
+    
+    public Inventory getInventory() {
         return this.inventory;
-     }
-     
-     public void updateDamage() {
+    }
+    
+    public void updateDamage() {
         int weaponDamage = this.inventory.getEquippedWeapon().getDamage();
         this.totalDamage = super.getBaseDamage() + weaponDamage;
     }

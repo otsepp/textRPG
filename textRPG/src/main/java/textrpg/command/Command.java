@@ -26,5 +26,6 @@ public abstract class Command {
         return this.newCommands;
     }
     
-     public abstract CommandReturnValues executeCommand();
+    public abstract CommandReturnValues executeCommand();
+
 }
