@@ -1,11 +1,12 @@
 
 package textrpg.characters;
 
-public class Bandit extends Character implements Enemy{
+public class Bandit extends Enemy{
     
     
-    public Bandit(int health) {
+    public Bandit() {
         super("Bandit");
+        super.setHealth(50);
     }
 
 }

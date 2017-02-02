@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import textrpg.characters.Player;
 import textrpg.commands.Command;
+import textrpg.game_events.BattleEvent;
 import textrpg.game_events.EndEvent;
 import textrpg.game_events.GameEvent;
 import textrpg.game_events.GameEventReturnValues;
@@ -65,7 +66,7 @@ public class Game {
                   
                   if (ret != null) {
                       System.out.println("\n" + ret.getEndMessage());
-                      return ret.isEventContinues();
+                      return ret.getEventContinues();
                       
                   } else {
                       System.out.println("Invalid command id.");
@@ -75,6 +76,7 @@ public class Game {
     
     public void createEvents() {
         this.events.add(new StraightPathEvent());
+        this.events.add(new BattleEvent(this.player));
         this.events.add(new EndEvent());
     }
     

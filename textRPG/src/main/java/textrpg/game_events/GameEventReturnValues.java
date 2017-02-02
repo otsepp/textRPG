@@ -14,7 +14,7 @@ public class GameEventReturnValues {
         return endMessage;
     }
     
-    public boolean isEventContinues() {
+    public boolean getEventContinues() {
         return eventContinues;
     }
     

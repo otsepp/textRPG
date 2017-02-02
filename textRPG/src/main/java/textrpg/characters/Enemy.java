@@ -1,7 +1,10 @@
 
 package textrpg.characters;
 
-//Marker interface?
-public interface Enemy {
+public abstract class Enemy extends Character{
+    
+    public Enemy(String name) {
+        super(name);
+    }
     
 }
