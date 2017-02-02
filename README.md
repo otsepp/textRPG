@@ -11,6 +11,6 @@ HUOM!: Aihe valittiin 1.2.2017. Viikonloppuna pitäisi olla kaikki vaatimukset l
 
 **Raportit**
 
-[pit: ](https://htmlpreview.github.io/?https://github.com/otsepp/textRPG/blob/master/dokumentaatio/pit/index.html)
+[pit](https://htmlpreview.github.io/?https://github.com/otsepp/textRPG/blob/master/dokumentaatio/pit/index.html)
 
-[checkstyle: ](https://htmlpreview.github.io/?https://github.com/otsepp/textRPG/blob/master/dokumentaatio/checkstyle/site/checkstyle.html)
+[checkstyle](https://htmlpreview.github.io/?https://github.com/otsepp/textRPG/blob/master/dokumentaatio/checkstyle/site/checkstyle.html)
