@@ -1,6 +1,6 @@
 Tekstipohjainen rpg-peli, ohjelmoinnin harjoitustyö (WIP)
 
-HUOM!: Aihe valittiin 1.2.2017. Viikon lopussa pitäisi olla kaikki vaatimukset lisättynä.
+HUOM!: Aihe valittiin 1.2.2017. Viikonloppuna pitäisi olla kaikki vaatimukset lisättynä.
 
 **Dokumentaatio**
 

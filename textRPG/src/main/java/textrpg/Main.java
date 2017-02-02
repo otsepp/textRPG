@@ -1,5 +1,5 @@
 
-package sudoku.textrpg;
+package textrpg;
 
 public class Main {
 

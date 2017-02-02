@@ -1,5 +1,5 @@
 
-package sudoku.textrpg.commands;
+package textrpg.commands;
 
 import java.util.List;
 

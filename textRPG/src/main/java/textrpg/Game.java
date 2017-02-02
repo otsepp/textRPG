@@ -1,14 +1,15 @@
 
-package sudoku.textrpg;
+package textrpg;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import sudoku.textrpg.characters.Player;
-import sudoku.textrpg.commands.Command;
-import sudoku.textrpg.game_events.GameEvent;
-import sudoku.textrpg.game_events.GameEventReturnValues;
-import sudoku.textrpg.game_events.straight_path_event.StraightPathEvent;
+import textrpg.characters.Player;
+import textrpg.commands.Command;
+import textrpg.game_events.EndEvent;
+import textrpg.game_events.GameEvent;
+import textrpg.game_events.GameEventReturnValues;
+import textrpg.game_events.StraightPathEvent;
 
 public class Game {
     
@@ -28,11 +29,12 @@ public class Game {
         
         for (GameEvent e : events) {
             handleEvent(e);
+            System.out.println("");
         }
     }
     
     public void handleEvent(GameEvent e) {
-        System.out.println(e.getStartMessage());
+        System.out.println("****" + e.getStartMessage() + "****");
         
         boolean continueEvent = true;
         while (continueEvent) {
@@ -43,6 +45,7 @@ public class Game {
              }
              System.out.println("");
              continueEvent = chooseAndExecuteCommand(e, commands);
+             System.out.println("");
         }
     }
     
@@ -58,7 +61,7 @@ public class Game {
                        s.next();
                        continue;
                   }
-                  GameEventReturnValues ret = e.executeCommand(commandId - 1);
+                  GameEventReturnValues ret = e.execCommand(commandId - 1);
                   
                   if (ret != null) {
                       System.out.println("\n" + ret.getEndMessage());
@@ -72,6 +75,7 @@ public class Game {
     
     public void createEvents() {
         this.events.add(new StraightPathEvent());
+        this.events.add(new EndEvent());
     }
     
 }

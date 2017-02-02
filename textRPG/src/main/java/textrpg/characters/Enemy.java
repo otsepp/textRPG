@@ -1,5 +1,5 @@
 
-package sudoku.textrpg.characters;
+package textrpg.characters;
 
 //Marker interface?
 public interface Enemy {

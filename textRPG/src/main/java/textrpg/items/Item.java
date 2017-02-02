@@ -1,5 +1,5 @@
 
-package sudoku.textrpg.items;
+package textrpg.items;
 
 public abstract class Item {
     private String name;
@@ -11,11 +11,11 @@ public abstract class Item {
     }
     
     public String getName() {
-        return name;
+        return this.name;
     }
     
     public String getDescription() {
-        return description;
+        return this.description;
     }
     
 }

@@ -1,5 +1,5 @@
 
-package sudoku.textrpg.commands;
+package textrpg.commands;
 
 import java.util.List;
 
@@ -15,15 +15,15 @@ public abstract class Command {
     }
     
     public String getDescription() {
-        return description;
+        return this.description;
     }
     
     public String getEndMessage() {
-        return endMessage;
+        return this.endMessage;
     }
     
     public List<Command> getNewCommands() {
-        return newCommands;
+        return this.newCommands;
     }
     
      public abstract CommandReturnValues executeCommand();

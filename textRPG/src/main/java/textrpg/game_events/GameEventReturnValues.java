@@ -1,5 +1,5 @@
 
-package sudoku.textrpg.game_events;
+package textrpg.game_events;
 
 public class GameEventReturnValues {
     private String endMessage;

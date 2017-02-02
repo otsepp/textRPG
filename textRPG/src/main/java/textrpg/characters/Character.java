@@ -1,5 +1,5 @@
 
-package sudoku.textrpg.characters;
+package textrpg.characters;
 
 public abstract class Character {
     private String name;
@@ -13,15 +13,15 @@ public abstract class Character {
     }
     
     public String getName() {
-        return name;
+        return this.name;
     }
     
     public int getHealth() {
-        return health;
+        return this.health;
     }
     
     public int getBaseDamage() {
-        return baseDamage;
+        return this.baseDamage;
     }
     
     public void setName(String name) {
