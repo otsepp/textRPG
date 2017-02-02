@@ -13,11 +13,11 @@ public class CommandReturnValues {
         this.newCommands = newCommands;
     }
     
-    public String getMessage() {
+    public String getEndMessage() {
         return endMessage;
     }
     
-    public List<Command> getCommands() {
+    public List<Command> getNewCommands() {
         return newCommands;
     }
     

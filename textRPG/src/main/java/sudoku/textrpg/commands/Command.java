@@ -18,5 +18,13 @@ public abstract class Command {
         return description;
     }
     
+    public String getEndMessage() {
+        return endMessage;
+    }
+    
+    public List<Command> getNewCommands() {
+        return newCommands;
+    }
+    
      public abstract CommandReturnValues executeCommand();
 }

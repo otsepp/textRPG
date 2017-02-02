@@ -13,9 +13,16 @@ public abstract class GameEvent {
         this.commands = commands;
     }
     
+    public String getStartMessage() {
+        return startMessage;
+    }
+    
+    public List<Command> getCommands() {
+        return commands;
+    }
+    
     protected abstract void fillCommandList();
     
-    //tämä todennäköisesti katoaa
-    public abstract void initiateEvent();
+    public abstract GameEventReturnValues executeCommand(int commandId);
     
 }
