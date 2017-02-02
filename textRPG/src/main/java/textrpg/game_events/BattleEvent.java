@@ -52,7 +52,7 @@ public class BattleEvent extends GameEvent{
     }
     
     private String attackPlayer() {
-        int damage = this.enemy.getBaseDamage();    //placeholder
+        int damage = this.enemy.getDamage();    //placeholder
         this.player.takeDamage(damage);
         return this.enemy.getName() + " attacks " + this.player.getName() +" for " + damage + " damage.";
     }
@@ -79,7 +79,7 @@ public class BattleEvent extends GameEvent{
         
         @Override
         public CommandReturnValues executeCommand() {
-            int damage = this.p.getBaseDamage();
+            int damage = this.p.getDamage();
             this.e.takeDamage(damage);
             int remainingEnemyHealth = e.getHealth();
             

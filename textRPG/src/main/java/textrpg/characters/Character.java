@@ -4,12 +4,12 @@ package textrpg.characters;
 public abstract class Character {
     private String name;
     private int health;
-    private int baseDamage;
+    private int damage;
     
     public Character(String name) {
         this.name = name;
         this.health = 100;
-        this.baseDamage = 10;
+        this.damage = 10;
     }
     
     public String getName() {
@@ -20,20 +20,20 @@ public abstract class Character {
         return this.health;
     }
     
-    public int getBaseDamage() {
-        return this.baseDamage;
+    public int getDamage() {
+        return this.damage;
     }
     
     public void setHealth(int health) {
         this.health = health;
     }
     
-    public void setBaseDamage(int baseDamage) {
-        this.baseDamage = baseDamage;
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
     
-    public void takeDamage(int damage) {
-        this.health -= damage;
+    public void takeDamage(int damageDone) {
+        this.health -= damageDone;
     }
     
 }
