@@ -21,23 +21,12 @@ public class StraightPathEventTest {
         this.event = new StraightPathEvent();
     }
     
-    
-    @Test
-    public void startMessageIsCreated() {
-        assertEquals("You see a straight path in front of you.", this.event.getStartMessage());
-    }
 
     @Test
     public void commandsAreCreated() {
         List<Command> commands = this.event.getCommands();
         assertEquals(1, commands.size());
         assertEquals(true, commands.get(0) != null);
-    }
-    
-    @Test
-    public void commandDescriptionWorks() {
-        List<Command> commands = this.event.getCommands();
-        assertEquals("Go forward.", commands.get(0).getDescription());
     }
     
     @Test
@@ -54,7 +43,6 @@ public class StraightPathEventTest {
         
         List<String> messages = ret.getMessages();
         assertEquals(1, messages.size());
-        assertEquals("You walk forward.", messages.get(0));
     }
     
 }

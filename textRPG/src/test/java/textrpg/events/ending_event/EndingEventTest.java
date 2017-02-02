@@ -22,22 +22,12 @@ public class EndingEventTest {
     
     
     @Test
-    public void startMessageIsCreated() {
-        assertEquals(this.endEvent.getStartMessage(), "You have reached the end of the game!");
-    }
-    
-    @Test
     public void commandsAreCreated() {
         List<Command> commands = this.endEvent.getCommands();
         assertEquals(1, commands.size());
         assertEquals(true, commands.get(0) != null);
     }
     
-    @Test
-    public void commandDescriptionWorks() {
-        List<Command> commands = this.endEvent.getCommands();
-        assertEquals("Quit game", commands.get(0).getDescription());
-    }
     
     @Test
     public void initiateEventDeniesWrongInput() {
@@ -53,7 +43,6 @@ public class EndingEventTest {
         
         List<String> messages = ret.getMessages();
         assertEquals(1, messages.size());
-        assertEquals("Thank you for playing.", messages.get(0));
     }
     
 }

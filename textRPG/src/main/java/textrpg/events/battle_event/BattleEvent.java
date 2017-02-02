@@ -3,11 +3,8 @@ package textrpg.events.battle_event;
 
 import java.util.ArrayList;
 import java.util.List;
-import textrpg.characters.Bandit;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
-import textrpg.command.Command;
-import textrpg.command.CommandReturnValues;
 import textrpg.game_event.GameEvent;
 import textrpg.game_event.GameEventReturnValues;
 
@@ -16,12 +13,13 @@ public class BattleEvent extends GameEvent{
     private Player player;
     private Enemy enemy;
     
-    public BattleEvent(Player player) {
+    public BattleEvent(Player player, Enemy enemy) {
         super("", new ArrayList());
         this.player = player;
-        chooseAnEnemy();
-        fillCommandList();
+        this.enemy = enemy;
         super.startMessage = "You find yourself facing a " + enemy.getName();
+        fillCommandList();
+
     }
     
     @Override
@@ -52,7 +50,7 @@ public class BattleEvent extends GameEvent{
             }
             
         } else {
-            messages.add(this.enemy.getName() + " is dead. You continue you way.");
+            messages.add(this.enemy.getName() + " is dead. You continue your way.");
         }
         
         return ret;
@@ -63,11 +61,7 @@ public class BattleEvent extends GameEvent{
         this.player.takeDamage(damage);
         return this.enemy.getName() + " attacks " + this.player.getName() +" for " + damage + " damage.";
     }
-    
-    private void chooseAnEnemy() {
-        this.enemy = new Bandit();  //placeholder
-    }
-    
+   
     public Player getPlayer() {
         return this.player;
     }

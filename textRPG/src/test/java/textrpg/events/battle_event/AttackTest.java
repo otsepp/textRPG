@@ -4,6 +4,7 @@ package textrpg.events.battle_event;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
+import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.CommandReturnValues;
 
@@ -16,14 +17,13 @@ public class AttackTest {
     
     @Before
     public void setUp() {
-        BattleEvent battleEvent = new BattleEvent(new Player("Tester"));
+        BattleEvent battleEvent = new BattleEvent(new Player("Tester"), new Enemy("Tester's enemy"));
         this.attack = new Attack(battleEvent.getCommands(), battleEvent.getPlayer(), battleEvent.getEnemy());
     }
     
     
     @Test
     public void constructorWorks() {
-        assertEquals("Attack", this.attack.getDescription());
         assertEquals(true, this.attack.getNewCommands() != null);
         assertEquals(true, this.attack.getPlayer() != null);
         assertEquals(true, this.attack.getEnemy() != null);
