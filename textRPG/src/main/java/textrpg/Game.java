@@ -29,12 +29,17 @@ public class Game {
         createEvents();
         
         for (GameEvent e : events) {
-            handleEvent(e);
+            boolean playerSurvives = handleEvent(e);
             System.out.println("");
+            
+            if (!playerSurvives) {
+                System.out.println("Game over!");
+                break;
+            }
         }
     }
     
-    public void handleEvent(GameEvent e) {
+    public boolean handleEvent(GameEvent e) {
         System.out.println("****" + e.getStartMessage() + "****");
         
         boolean continueEvent = true;
@@ -47,6 +52,12 @@ public class Game {
              System.out.println("");
              continueEvent = chooseAndExecuteCommand(e, commands);
              System.out.println("");
+        }
+        
+        if (player.getHealth() > 0) {
+            return true;
+        } else {
+            return false;
         }
     }
     
@@ -62,10 +73,13 @@ public class Game {
                        s.next();
                        continue;
                   }
-                  GameEventReturnValues ret = e.execCommand(commandId - 1);
+                  GameEventReturnValues ret = e.initiateEvent(commandId - 1);
                   
                   if (ret != null) {
-                      System.out.println("\n" + ret.getEndMessage());
+                      System.out.println("");
+                      for (String msg : ret.getMessages()) {
+                          System.out.println(msg);
+                      }
                       return ret.getEventContinues();
                       
                   } else {

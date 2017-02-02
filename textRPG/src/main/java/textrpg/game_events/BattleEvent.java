@@ -13,49 +13,83 @@ public class BattleEvent extends GameEvent{
 
     private Player player;
     private Enemy enemy;
-    private boolean playerTurn;
     
     public BattleEvent(Player player) {
         super("", new ArrayList());
-        fillCommandList();
+        this.player = player;
         chooseAnEnemy();
+        fillCommandList();
         super.startMessage = "You find yourself facing a " + enemy.getName();
-        this.playerTurn = true;
     }
     
     @Override
     protected final void fillCommandList() {
-        this.commands.add(new Attack(this.player, this.enemy, super.commands));
+        super.commands.add(new Attack(super.commands, this.player, this.enemy));
+    }
+    
+    @Override
+    public GameEventReturnValues initiateEvent(int commandId) {
+        GameEventReturnValues ret = super.initiateEvent(commandId);
+        
+        List<String> messages = ret.getMessages();
+        
+        if (super.commands != null) {
+            messages.add(this.enemy.getName() + " has " + this.enemy.getHealth() + " health remaining.");
+            messages.add(attackPlayer());
+            
+            if (this.player.getHealth() > 0) {
+                messages.add(this.player.getName() + " has " + this.player.getHealth() + " health remaining");
+            } else {
+                messages.add(this.player.getName() + " has died.");
+                ret.setEventContinues(false);
+            }
+            
+        } else {
+            messages.add(this.enemy.getName() + " is dead. You continue you way.");
+        }
+        
+        return ret;
+    }
+    
+    private String attackPlayer() {
+        int damage = this.enemy.getBaseDamage();    //placeholder
+        this.player.takeDamage(damage);
+        return this.enemy.getName() + " attacks " + this.player.getName() +" for " + damage + " damage.";
     }
     
     private void chooseAnEnemy() {
-        this.enemy = new Bandit();
+        this.enemy = new Bandit(); //placeholder
     }
     
     
     
     public class Attack extends Command {
+        private List<Command> commands;
         private Player p;
         private Enemy e;
-        private List<Command> commands;
-        //nämä kenttinä siltä varalta jos luokka laitetaan omaan tiedostoon
-        private boolean playerTurn;
+        //nämä kenttinä siltä varalta jos luokka laitetaan omaan tiedostoon (todennäköistä)
         
-        public Attack(Player p, Enemy e, List<Command> commands) { 
+        public Attack(List<Command> commands, Player p, Enemy e) { 
             super("Attack", 
                     "",
                     commands);
             this.p = p;
             this.e = e;
-            this.playerTurn = true;
         }
-        
         
         @Override
         public CommandReturnValues executeCommand() {
+            int damage = this.p.getBaseDamage();
+            this.e.takeDamage(damage);
+            int remainingEnemyHealth = e.getHealth();
             
+            String message = this.p.getName() + " attacks " + this.e.getName() + " for " + damage + " damage.";
             
-            return null;
+            if (remainingEnemyHealth > 0) {
+                return new CommandReturnValues(message, super.newCommands);
+            } else {
+                return new CommandReturnValues(message, null);
+            }
         }
         
         

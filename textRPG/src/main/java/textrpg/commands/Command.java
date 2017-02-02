@@ -5,12 +5,12 @@ import java.util.List;
 
 public abstract class Command {
     protected String description;
-    protected String endMessage;
+    protected String message;
     protected List<Command> newCommands;
     
-    public Command(String description, String endMessage, List<Command> newCommands) {
+    public Command(String description, String message, List<Command> newCommands) {
         this.description = description;
-        this.endMessage = endMessage;
+        this.message = message;
         this.newCommands = newCommands;
     }
     
@@ -18,8 +18,8 @@ public abstract class Command {
         return this.description;
     }
     
-    public String getEndMessage() {
-        return this.endMessage;
+    public String getMessage() {
+        return this.message;
     }
     
     public List<Command> getNewCommands() {

@@ -29,7 +29,7 @@ public class StraightPathEvent extends GameEvent{
         
         @Override
         public CommandReturnValues executeCommand() {
-            return new CommandReturnValues(super.endMessage, super.newCommands);
+            return new CommandReturnValues(super.message, super.newCommands);
         }
     }
     

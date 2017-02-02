@@ -1,6 +1,7 @@
 
 package textrpg.game_events;
 
+import java.util.ArrayList;
 import java.util.List;
 import textrpg.commands.Command;
 import textrpg.commands.CommandReturnValues;
@@ -22,7 +23,7 @@ public abstract class GameEvent {
         return this.commands;
     }
     
-    public GameEventReturnValues execCommand(int commandId) {
+    public GameEventReturnValues initiateEvent(int commandId) {
          if (commandId < 0 || commandId > this.commands.size() - 1) {
             return null;
         }
@@ -30,13 +31,15 @@ public abstract class GameEvent {
         CommandReturnValues ret = command.executeCommand();
         
         this.commands = ret.getNewCommands();
-        String endMessage = ret.getEndMessage();
+        
+        List<String> returnMessages = new ArrayList();
+        returnMessages.add(ret.getMessages());
         
         boolean eventContinues = true;
         if (this.commands == null) {
             eventContinues = false;
         }
-        return new GameEventReturnValues(endMessage, eventContinues);
+        return new GameEventReturnValues(returnMessages, eventContinues);
     }
     
     protected abstract void fillCommandList();
