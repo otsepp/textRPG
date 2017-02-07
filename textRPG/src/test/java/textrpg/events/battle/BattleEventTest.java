@@ -17,6 +17,7 @@ public class BattleEventTest {
     }
     
     private BattleEvent event;
+    private final int commandsAmount = 2;
     
     @Before
     public void setUp() {
@@ -33,14 +34,17 @@ public class BattleEventTest {
     @Test
     public void commandsAreCreated() {
         List<Command> commands = this.event.getCommands();
-        assertEquals(1, commands.size());
-        assertEquals(true, commands.get(0) != null);
+        
+        assertEquals(this.commandsAmount, commands.size());
+        for (Command c : commands) {
+            assertEquals(true, c != null);
+        }
     }
     
     @Test
     public void initiateEventDeniesWrongInput() {
         assertEquals(null, this.event.initiateEvent(-1));
-        assertEquals(null, this.event.initiateEvent(1));
+        assertEquals(null, this.event.initiateEvent(commandsAmount));
     }
     
     @Test

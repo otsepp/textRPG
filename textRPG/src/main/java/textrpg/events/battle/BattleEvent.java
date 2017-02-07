@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
+import textrpg.command.Command;
 import textrpg.event.GameEvent;
 import textrpg.event.GameEventReturnValues;
 
@@ -14,13 +15,15 @@ public class BattleEvent extends GameEvent {
     private Enemy enemy;
     private boolean playerTurn;
     
+    private List<Command> defaultCommands;
+    
     public BattleEvent(Player player, Enemy enemy) {
         super("", new ArrayList());
         this.player = player;
         this.enemy = enemy;
         super.startMessage = "You find yourself facing a " + enemy.getName();
-        fillCommandList();
         this.playerTurn = true;
+        setDefaultCommands();
     }
 
     
@@ -33,8 +36,12 @@ public class BattleEvent extends GameEvent {
     }
     
     @Override
-    protected final void fillCommandList() {
-        super.commands.add(new Attack(super.commands, this.player, this.enemy, this));
+    public final void setDefaultCommands() {
+        if (super.commands.size() > 0) {
+            super.commands.clear();
+        }
+        super.commands.add(new Attack(this));
+        super.commands.add(new SelectItem(this));
     }
     
     @Override
@@ -49,16 +56,15 @@ public class BattleEvent extends GameEvent {
         
         if (super.commands != null && !this.playerTurn) {
              attackPlayer(returnValues);
-        } else {
+        } else if (super.commands == null) {
             messages.add(this.enemy.getName() + " is dead. You continue your way.");
         }
-        
         return returnValues;
     }
     
     private void attackPlayer( GameEventReturnValues returnValues) {
         List<String> messages = returnValues.getMessages();
-        
+
         int damage = this.enemy.getBaseDamage();
         this.player.takeDamage(damage);
         messages.add(this.enemy.getName() + " attacks " + this.player.getName() + " for " + damage + " damage.");

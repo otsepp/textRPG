@@ -1,4 +1,5 @@
 
+
 package textrpg.events.battle;
 
 import java.util.ArrayList;
@@ -14,19 +15,18 @@ public class Attack extends Command {
     private Enemy enemy;
     private BattleEvent battle;
     
-    public Attack(List<Command> commands, Player player, Enemy enemy
-    , BattleEvent battle
-    ) {
-        super("Attack",
-                new ArrayList(),
-                commands);
-        this.player = player;
-        this.enemy = enemy;
+    public Attack(BattleEvent battle) {
+        super("Attack", //desc
+                new ArrayList(),    //messages
+                battle.getCommands());  //new commands
+        this.player = battle.getPlayer();
+        this.enemy = battle.getEnemy();
         this.battle = battle;
     }
 
     @Override
     public CommandReturnValues executeCommand() {
+        this.battle.setPlayerTurn(false);
         super.messages.clear();
 
         int damage = this.player.getTotalDamage();
@@ -36,9 +36,8 @@ public class Attack extends Command {
         super.messages.add(this.player.getName() + " attacks " + this.enemy.getName() + " for " + damage + " damage.");
         super.messages.add(this.enemy.getName() + " has " + remainingEnemyHealth + " health remaining.");
         
-        this.battle.setPlayerTurn(false);
-        
         if (remainingEnemyHealth > 0) {
+            
             return new CommandReturnValues(super.messages, super.newCommands);
         } else {
             return new CommandReturnValues(super.messages, null);

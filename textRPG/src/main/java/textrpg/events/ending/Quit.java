@@ -15,7 +15,7 @@ public class Quit extends Command {
 
     @Override
     public CommandReturnValues executeCommand() {
-        super.messages.add("You walk forward.");
+        super.messages.add("Thank you for playing.");
         return new CommandReturnValues(super.messages, super.newCommands);
     }
 }

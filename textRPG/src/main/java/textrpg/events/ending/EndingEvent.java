@@ -10,11 +10,11 @@ public class EndingEvent extends GameEvent {
     public EndingEvent() {
         super("You have reached the end of the game!",
                 new ArrayList());
-        fillCommandList();
+        setDefaultCommands();
     }
     
     @Override
-    protected final void fillCommandList() {
+    protected final  void setDefaultCommands() {
         super.commands.add(new Quit());
     }
         

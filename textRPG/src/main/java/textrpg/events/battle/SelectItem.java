@@ -3,28 +3,41 @@ package textrpg.events.battle;
 
 import java.util.ArrayList;
 import java.util.List;
-import textrpg.characters.Player;
 import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
+import textrpg.items.Item;
+import textrpg.items.Usable;
 
 public class SelectItem extends Command {
-    private Player player;
+    private BattleEvent battle;
     
-    public SelectItem(Player player,BattleEvent battle) {
-        super("Use an item", 
-                new ArrayList(),
-                new ArrayList());
-        this.player = player; 
+    public SelectItem(BattleEvent battle) {
+        super("Select an item", //description  
+                new ArrayList(),    //messages
+                battle.getCommands());   //new commands
+        this.battle = battle;
     }
+
     
+    @Override
     public CommandReturnValues executeCommand() {
+        battle.setPlayerTurn(true);
+        super.messages.clear();
         
-        
+        List<Usable> usables = this.battle.getPlayer().getInventory().getUsableItems();
+        if (!usables.isEmpty()) {
+            setCommands(usables);
+        } else {
+            super.messages.add("No items to use!");
+        }
         return new CommandReturnValues(super.messages, super.newCommands);
     }
     
-    private void createCommands() {
-        
+    private void setCommands(List<Usable> usables) {
+        for (Usable u : usables) {
+            Item uAsItem = (Item) u;
+            super.newCommands.clear();
+            super.newCommands.add(new UseItem(this.battle, uAsItem));
+        }
     }
-    
 }

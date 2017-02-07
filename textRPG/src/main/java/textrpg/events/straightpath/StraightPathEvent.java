@@ -9,11 +9,11 @@ public class StraightPathEvent extends GameEvent {
     public StraightPathEvent() {
         super("You see a straight path in front of you.",      
                 new ArrayList());
-        fillCommandList();
+        setDefaultCommands();
     }
     
     @Override
-    protected final void fillCommandList() {
+    protected final void setDefaultCommands() {
         super.commands.add(new GoForward());
     }
     

@@ -29,7 +29,6 @@ public abstract class GameEvent {
         }
         Command command = this.commands.get(commandId);
         CommandReturnValues returnValues = command.executeCommand();
-        
         this.commands = returnValues.getNewCommands();
         
         List<String> returnMessages = new ArrayList();
@@ -42,6 +41,6 @@ public abstract class GameEvent {
         return new GameEventReturnValues(returnMessages, eventContinues);
     }
     
-    protected abstract void fillCommandList();
+    protected abstract void setDefaultCommands();
     
 }
