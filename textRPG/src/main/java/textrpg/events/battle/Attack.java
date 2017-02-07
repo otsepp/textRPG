@@ -12,12 +12,9 @@ import textrpg.command.CommandReturnValues;
 public class Attack extends Command {
     private Player player;
     private Enemy enemy;
-    
-    //testi
     private BattleEvent battle;
     
     public Attack(List<Command> commands, Player player, Enemy enemy
-    //testi
     , BattleEvent battle
     ) {
         super("Attack",
@@ -25,7 +22,6 @@ public class Attack extends Command {
                 commands);
         this.player = player;
         this.enemy = enemy;
-        //testi
         this.battle = battle;
     }
 

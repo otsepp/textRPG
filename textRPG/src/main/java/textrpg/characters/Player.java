@@ -9,8 +9,7 @@ public class Player extends Character {
     private int totalDamage;
     
     public Player(String name) {
-        super(name);
-        super.setHealth(150);
+        super(name, 150);
         this.inventory = new Inventory();
         this.updateDamage();
     }

@@ -12,8 +12,6 @@ public class BattleEvent extends GameEvent {
 
     private Player player;
     private Enemy enemy;
-    
-    //testi
     private boolean playerTurn;
     
     public BattleEvent(Player player, Enemy enemy) {
@@ -22,27 +20,21 @@ public class BattleEvent extends GameEvent {
         this.enemy = enemy;
         super.startMessage = "You find yourself facing a " + enemy.getName();
         fillCommandList();
-        
-        //testi
         this.playerTurn = true;
     }
+
     
-    //testi
     public boolean isPlayerTurn() {
         return this.playerTurn;
     }
-    //testi
+
     public void setPlayerTurn(boolean newValue) {
         this.playerTurn = newValue;
     }
     
-    
     @Override
     protected final void fillCommandList() {
-        super.commands.add(new Attack(super.commands, this.player, this.enemy
-                //testi
-                , this
-        ));
+        super.commands.add(new Attack(super.commands, this.player, this.enemy, this));
     }
     
     @Override
