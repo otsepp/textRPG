@@ -5,16 +5,16 @@ import java.util.List;
 
 public class CommandReturnValues {
     
-    private String message;
+    private List<String> messages;
     private List<Command> newCommands;
     
-    public CommandReturnValues(String message, List<Command> newCommands) {
-        this.message = message;
+    public CommandReturnValues(List<String> messages, List<Command> newCommands) {
+        this.messages = messages;
         this.newCommands = newCommands;
     }
     
-    public String getMessages() {
-        return message;
+    public List<String> getMessages() {
+        return messages;
     }
     
     public List<Command> getNewCommands() {

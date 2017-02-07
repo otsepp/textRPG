@@ -23,8 +23,8 @@ public class GoForwardTest {
      @Test
     public void constructorWorks() {
         assertEquals(null, this.goForward.getNewCommands());
+        assertEquals(true, this.goForward.getMessages().isEmpty());
         assertEquals(true, this.goForward.getDescription() != null);
-        assertEquals(true, this.goForward.getMessage() != null);
     }
     
     @Test

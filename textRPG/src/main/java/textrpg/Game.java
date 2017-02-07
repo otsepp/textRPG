@@ -13,6 +13,8 @@ import textrpg.event.GameEvent;
 import textrpg.event.GameEventReturnValues;
 import textrpg.events.straightpath.StraightPathEvent;
 
+
+//print-based version, seperate from GameUI
 public class Game {
     
     private Player player;

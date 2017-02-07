@@ -22,9 +22,8 @@ public class QuitTest {
     @Test
     public void constructorWorks() {
         assertEquals(null, this.quit.getNewCommands());
+        assertEquals(true, this.quit.getMessages().isEmpty());
         assertEquals(true, this.quit.getDescription() != null);
-        assertEquals(true, this.quit.getMessage() != null);
-
     }
     
     @Test

@@ -1,19 +1,21 @@
 
 package textrpg.events.ending;
 
+import java.util.ArrayList;
 import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
 
 
 public class Quit extends Command {
     public Quit() {
-        super("Quit game",  //description
-                "Thank you for playing.",   //endmessage
-                null);  //new commands
+        super("Quit game", 
+                new ArrayList(),   
+                null);  
     }
-    
+
     @Override
     public CommandReturnValues executeCommand() {
-        return new CommandReturnValues(super.message, super.newCommands);
+        super.messages.add("You walk forward.");
+        return new CommandReturnValues(super.messages, super.newCommands);
     }
 }

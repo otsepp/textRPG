@@ -20,7 +20,7 @@ public class AttackTest {
     @Before
     public void setUp() {
         BattleEvent battleEvent = new BattleEvent(new Player("Tester"), new Enemy("Tester's enemy"));
-        this.attack = new Attack(battleEvent.getCommands(), battleEvent.getPlayer(), battleEvent.getEnemy());
+        this.attack = new Attack(battleEvent.getCommands(), battleEvent.getPlayer(), battleEvent.getEnemy(), battleEvent);
     }
     
     

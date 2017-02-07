@@ -28,12 +28,12 @@ public abstract class GameEvent {
             return null;
         }
         Command command = this.commands.get(commandId);
-        CommandReturnValues ret = command.executeCommand();
+        CommandReturnValues returnValues = command.executeCommand();
         
-        this.commands = ret.getNewCommands();
+        this.commands = returnValues.getNewCommands();
         
         List<String> returnMessages = new ArrayList();
-        returnMessages.add(ret.getMessages());
+        returnMessages.addAll(returnValues.getMessages());
         
         boolean eventContinues = true;
         if (this.commands == null) {
