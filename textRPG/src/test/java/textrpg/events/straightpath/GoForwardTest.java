@@ -29,8 +29,8 @@ public class GoForwardTest {
     
     @Test
     public void executeCommandWorks() {
-        CommandReturnValues ret = this.goForward.executeCommand();
-        assertEquals(null, ret.getNewCommands());
+        CommandReturnValues returnValues = this.goForward.executeCommand();
+        assertEquals(null, returnValues.getNewCommands());
     }
     
 }

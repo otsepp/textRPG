@@ -28,8 +28,8 @@ public class QuitTest {
     
     @Test
     public void executeCommandWorks() {
-        CommandReturnValues ret = this.quit.executeCommand();
-        assertEquals(null, ret.getNewCommands());
+        CommandReturnValues returnValues = this.quit.executeCommand();
+        assertEquals(null, returnValues.getNewCommands());
     }
     
 }

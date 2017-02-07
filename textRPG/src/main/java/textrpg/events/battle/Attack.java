@@ -44,6 +44,10 @@ public class Attack extends Command {
         }
     }
     
+    public BattleEvent getBattleEvent () {
+        return this.battle;
+    }
+    
     public Player getPlayer() {
         return this.player;
     }

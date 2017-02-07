@@ -1,7 +1,5 @@
 package textrpg.events.battle;
 
-import textrpg.events.battle.Attack;
-import textrpg.events.battle.BattleEvent;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,6 +23,7 @@ public class AttackTest {
     
     @Test
     public void constructorWorks() {
+        assertEquals(true, this.attack.getBattleEvent() != null);
         assertEquals(true, this.attack.getNewCommands() != null);
         assertEquals(true, this.attack.getPlayer() != null);
         assertEquals(true, this.attack.getEnemy() != null);
@@ -34,11 +33,13 @@ public class AttackTest {
     public void executeCommandWorks() {
         this.attack.getEnemy().setHealth(this.attack.getPlayer().getTotalDamage() * 2);
         
-        CommandReturnValues ret  = this.attack.executeCommand();
-        assertEquals(true, ret.getNewCommands() != null);
+        CommandReturnValues returnValues  = this.attack.executeCommand();
+        assertEquals(true, returnValues.getNewCommands() != null);
         
-        ret = this.attack.executeCommand();
-        assertEquals(true, ret.getNewCommands() == null);
+        returnValues = this.attack.executeCommand();
+        assertEquals(true, returnValues.getNewCommands() == null);
+        
+        assertEquals(false, this.attack.getBattleEvent().isPlayerTurn());
     }
     
 }

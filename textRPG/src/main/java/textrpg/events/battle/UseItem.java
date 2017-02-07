@@ -31,4 +31,13 @@ public class UseItem extends Command {
         return new CommandReturnValues(super.messages, battle.getCommands());
     }
     
+    
+    public BattleEvent getBattleEvent() {
+        return this.battle;
+    }
+    
+    public Item getItem() {
+        return this.item;
+    }
+    
 }

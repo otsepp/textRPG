@@ -34,10 +34,14 @@ public class SelectItem extends Command {
     }
     
     private void setCommands(List<Usable> usables) {
+        super.newCommands.clear();
         for (Usable u : usables) {
             Item uAsItem = (Item) u;
-            super.newCommands.clear();
             super.newCommands.add(new UseItem(this.battle, uAsItem));
         }
+    }
+    
+    public BattleEvent getBattleEvent() {
+        return this.battle;
     }
 }
