@@ -20,34 +20,35 @@ public class InventoryTest {
     
     @Test
     public void constructorWorks() {
-        assertEquals(true, this.inventory.getUsableItemsHash() != null);
+        assertEquals(true, this.inventory.getUsableItems() != null);
         assertEquals(true, this.inventory.getEquippedWeapon() != null);
-        assertEquals(true, this.inventory.getUsableItemsHash().size() > 0);
+        assertEquals(true, this.inventory.getUsableItems().size() > 0);
     }
     
     @Test
     public void addingUsableItemsWorks() {
-        Map<Usable, Integer> usables = this.inventory.getUsableItemsHash();
+        Map<Usable, Integer> usables = this.inventory.getUsableItems();
         
         HealthPotion potion = new HealthPotion(this.inventory);
-        this.inventory.addUsableItemHash(potion);
+        this.inventory.addUsableItem(potion);
         
         assertEquals(1, usables.size());
-        assertEquals(true, usables.get(potion) == 2);
+        assertEquals(true, usables.get(potion) == 3);
     }
     
     @Test
     public void removingUsableItemsWorks() {
-        Map<Usable, Integer> usables = this.inventory.getUsableItemsHash();
+        Map<Usable, Integer> usables = this.inventory.getUsableItems();
         HealthPotion potion = new HealthPotion(this.inventory);
         
-        this.inventory.addUsableItemHash(potion);
-        this.inventory.removeUsableItemHash(potion);
+        this.inventory.addUsableItem(potion);
+        this.inventory.removeUsableItem(potion);
         
         assertEquals(1, usables.size());
-        assertEquals(true, usables.get(potion) == 1);
+        assertEquals(true, usables.get(potion) == 2);
         
-        this.inventory.removeUsableItemHash(potion);
+        this.inventory.removeUsableItem(potion);
+        this.inventory.removeUsableItem(potion);
         assertEquals(false, usables.containsKey(potion));
         assertEquals(0, usables.size());
     }

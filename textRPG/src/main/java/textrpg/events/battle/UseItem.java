@@ -11,8 +11,10 @@ public class UseItem extends Command {
     private BattleEvent battle;
     private Item item;
     
-    public UseItem(BattleEvent battle, Item item) {
-        super(item.getName(), new ArrayList(), new ArrayList());
+    public UseItem(BattleEvent battle, Item item, int amount) {
+        super(item.getName() + " (" + amount + ")",
+                new ArrayList(),
+                new ArrayList());
         this.battle = battle;
         this.item = item;
     }

@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.CommandReturnValues;
+import textrpg.items.HealthPotion;
 import textrpg.items.Usable;
 
 public class SelectItemTest {
@@ -34,18 +35,19 @@ public class SelectItemTest {
     
     @Test
     public void executeCommandWorks() {
+        BattleEvent battleEvent = this.selectItem.getBattleEvent();
+        
           CommandReturnValues returnValuesNonEmptyInventory = this.selectItem.executeCommand();
-          assertEquals(true, returnValuesNonEmptyInventory.getNewCommands().equals(this.selectItem.getBattleEvent().getCommands()));
+          assertEquals(true, returnValuesNonEmptyInventory.getNewCommands().equals(battleEvent.getCommands()));
 
-          assertEquals(true, this.selectItem.getBattleEvent().isPlayerTurn());
+          assertEquals(true, battleEvent.isPlayerTurn());
           
-          Usable item = this.selectItem.getBattleEvent().getPlayer().getInventory().getUsableItems().get(0);   //health potion
+          Usable item = new HealthPotion(battleEvent.getPlayer().getInventory());   
           item.removeFromInvetory();
           CommandReturnValues returnValuesEmptyInventory = this.selectItem.executeCommand(); 
           assertEquals(false, returnValuesNonEmptyInventory.equals(returnValuesEmptyInventory));   
           
-          
-          assertEquals(true, this.selectItem.getBattleEvent().isPlayerTurn());
+          assertEquals(true, battleEvent.isPlayerTurn());
     }
     
     

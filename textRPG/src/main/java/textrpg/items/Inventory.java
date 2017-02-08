@@ -19,12 +19,12 @@ public class Inventory {
         this.usableItems.add(new HealthPotion(this));
         
         this.usableItemsHash = new HashMap();
-        addUsableItemHash(new HealthPotion(this));
+        addUsableItem(new HealthPotion(this));
+        addUsableItem(new HealthPotion(this));
     }
+
     
-   
-    
-    public void addUsableItemHash(Usable item) {
+    public void addUsableItem(Usable item) {
         if (!this.usableItemsHash.containsKey(item)) {
             this.usableItemsHash.put(item, 1);
         
@@ -33,7 +33,7 @@ public class Inventory {
         }
     }
     
-    public void removeUsableItemHash(Usable item) {
+    public void removeUsableItem(Usable item) {
         int count = this.usableItemsHash.get(item);
         
         if (count > 1) {
@@ -44,10 +44,9 @@ public class Inventory {
         } 
     }
 
-    public Map<Usable, Integer> getUsableItemsHash() {
+    public Map<Usable, Integer> getUsableItems() {
         return this.usableItemsHash;
     }
-    
     
      public Weapon getEquippedWeapon() {
         return this.equippedWeapon;
@@ -55,19 +54,6 @@ public class Inventory {
     
     public void setEquippedWeapon(Weapon weapon) {
         this.equippedWeapon = weapon;
-    }
-    
-    
-    
-     
-    public List<Usable> getUsableItems() {
-        return this.usableItems;
-    }
-    
-    public void removeUsableItem(Usable item) {
-        if (this.usableItems.contains(item)) {
-            this.usableItems.remove(item);
-        }
     }
     
 }

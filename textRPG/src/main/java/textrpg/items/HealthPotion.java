@@ -21,6 +21,7 @@ public class HealthPotion extends Item implements Usable{
     
     @Override
     public void removeFromInvetory() {
+//        this.inventory.removeUsableItem(this);
         this.inventory.removeUsableItem(this);
     }
    

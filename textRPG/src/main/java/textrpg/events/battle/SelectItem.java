@@ -2,7 +2,7 @@
 package textrpg.events.battle;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
 import textrpg.items.Item;
@@ -24,7 +24,7 @@ public class SelectItem extends Command {
         battle.setPlayerTurn(true);
         super.messages.clear();
         
-        List<Usable> usables = this.battle.getPlayer().getInventory().getUsableItems();
+        Map<Usable, Integer> usables = this.battle.getPlayer().getInventory().getUsableItems();
         if (!usables.isEmpty()) {
             setCommands(usables);
         } else {
@@ -33,11 +33,11 @@ public class SelectItem extends Command {
         return new CommandReturnValues(super.messages, super.newCommands);
     }
     
-    private void setCommands(List<Usable> usables) {
+    private void setCommands( Map<Usable, Integer> usables) {
         super.newCommands.clear();
-        for (Usable u : usables) {
+        for (Usable u : usables.keySet()) {
             Item uAsItem = (Item) u;
-            super.newCommands.add(new UseItem(this.battle, uAsItem));
+            super.newCommands.add(new UseItem(this.battle, uAsItem, usables.get(u)));
         }
     }
     
