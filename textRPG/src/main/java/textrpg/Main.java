@@ -1,10 +1,20 @@
 
 package textrpg;
 
+import javax.swing.SwingUtilities;
+
 public class Main {
 
     public static void main(String[] args) {
-        Game game = new Game();
+        
+    }
+    
+    public static void startUIGame() {
+       
+    }
+    
+    public static void startTextGame() {
+        GameText game = new GameText();
         game.start();
     }
     

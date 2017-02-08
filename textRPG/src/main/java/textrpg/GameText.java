@@ -14,14 +14,13 @@ import textrpg.event.GameEventReturnValues;
 import textrpg.events.straightpath.StraightPathEvent;
 
 
-//print-based version, seperate from GameUI
-public class Game {
+public class GameText {
     
     private Player player;
     private List<GameEvent> events;
     private Scanner s;
     
-    public Game() {
+    public GameText() {
         player = new Player("Player");
         events = new ArrayList();
         s = new Scanner(System.in);
@@ -92,9 +91,9 @@ public class Game {
     }
     
     public void createEvents() {
-       //this.events.add(new StraightPathEvent());
+       this.events.add(new StraightPathEvent());
        this.events.add(new BattleEvent(this.player, new Enemy("Bandit")));
-        //this.events.add(new EndingEvent());
+       this.events.add(new EndingEvent());
     }
 
 }
