@@ -3,7 +3,7 @@ package textrpg.items;
 
 import textrpg.characters.Player;
 
-public class HealthPotion extends Item implements Usable{
+public class HealthPotion extends Item implements Usable {
     private final int healAmount = 40;
     private Inventory inventory;
     
@@ -21,7 +21,6 @@ public class HealthPotion extends Item implements Usable{
     
     @Override
     public void removeFromInvetory() {
-//        this.inventory.removeUsableItem(this);
         this.inventory.removeUsableItem(this);
     }
    

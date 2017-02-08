@@ -91,9 +91,9 @@ public class GameText {
     }
     
     public void createEvents() {
-       this.events.add(new StraightPathEvent());
-       this.events.add(new BattleEvent(this.player, new Enemy("Bandit")));
-       this.events.add(new EndingEvent());
+        this.events.add(new StraightPathEvent());
+        this.events.add(new BattleEvent(this.player, new Enemy("Bandit")));
+        this.events.add(new EndingEvent());
     }
 
 }

@@ -4,7 +4,7 @@ package textrpg.ui;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 
-public class GameUI{
+public class GameUI {
     
     private JFrame frame;
     private MenuScreen menu;

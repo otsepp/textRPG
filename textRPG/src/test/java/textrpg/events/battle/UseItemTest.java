@@ -6,10 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
-import textrpg.command.CommandReturnValues;
 import textrpg.items.HealthPotion;
 import textrpg.items.Inventory;
 import textrpg.items.Item;
+import textrpg.items.Usable;
 
 public class UseItemTest {
     
@@ -36,15 +36,30 @@ public class UseItemTest {
         assertEquals(true, this.useItem.getBattleEvent().getPlayer() != null);
         assertEquals(true, this.useItem.getItem() != null);
     }
+
+    @Test
+    public void playerLosesTurn() {
+        BattleEvent battle = this.useItem.getBattleEvent();
+        this.useItem.executeCommand();
+        assertEquals(false, battle.isPlayerTurn());
+    }
     
     @Test
     public void executeCommandWorks() {
-        CommandReturnValues returnValues = this.useItem.executeCommand();
-        
+        Usable itemAsUsable = (Usable) this.useItem.getItem();
         Inventory inventory = this.useItem.getBattleEvent().getPlayer().getInventory();
-        assertEquals(1, inventory.getUsableItems().size());
+
+        inventory.removeAllUsableItems();
+        inventory.addUsableItem(itemAsUsable);
         
-        assertEquals(false, this.useItem.getBattleEvent().isPlayerTurn());
+       int itemCount = inventory.getUsableItems().get(itemAsUsable);    
+       assertEquals(1, itemCount);
+       
+       this.useItem.executeCommand();
+       
+       assertEquals(true, inventory.getUsableItems().get(itemAsUsable) == null);
+    
+       
     }
     
 }

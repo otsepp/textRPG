@@ -55,14 +55,14 @@ public class BattleEvent extends GameEvent {
         List<String> messages = returnValues.getMessages();
         
         if (super.commands != null && !this.playerTurn) {
-             attackPlayer(returnValues);
+            attackPlayer(returnValues);
         } else if (super.commands == null) {
             messages.add(this.enemy.getName() + " is dead. You continue your way.");
         }
         return returnValues;
     }
     
-    private void attackPlayer( GameEventReturnValues returnValues) {
+    private void attackPlayer(GameEventReturnValues returnValues) {
         List<String> messages = returnValues.getMessages();
 
         int damage = this.enemy.getBaseDamage();

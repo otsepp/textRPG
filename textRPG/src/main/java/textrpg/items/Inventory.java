@@ -8,47 +8,47 @@ import java.util.Map;
 
 public class Inventory {
     private Weapon equippedWeapon;
-    //make to hashmap
-    private Map<Usable, Integer> usableItemsHash;
+    private Map<Usable, Integer> usableItems;
     
-    private List<Usable> usableItems;
     
     public Inventory() {
         this.equippedWeapon = new Weapon("Iron Dagger", 10);
-        this.usableItems = new ArrayList();
-        this.usableItems.add(new HealthPotion(this));
         
-        this.usableItemsHash = new HashMap();
+        this.usableItems = new HashMap();
         addUsableItem(new HealthPotion(this));
         addUsableItem(new HealthPotion(this));
     }
 
     
     public void addUsableItem(Usable item) {
-        if (!this.usableItemsHash.containsKey(item)) {
-            this.usableItemsHash.put(item, 1);
+        if (!this.usableItems.containsKey(item)) {
+            this.usableItems.put(item, 1);
         
         } else {
-            this.usableItemsHash.put(item, this.usableItemsHash.get(item) + 1);
+            this.usableItems.put(item, this.usableItems.get(item) + 1);
         }
     }
     
     public void removeUsableItem(Usable item) {
-        int count = this.usableItemsHash.get(item);
+        int count = this.usableItems.get(item);
         
         if (count > 1) {
-            this.usableItemsHash.put(item, this.usableItemsHash.get(item) - 1);
+            this.usableItems.put(item, this.usableItems.get(item) - 1);
             
         } else if (count == 1) {
-            this.usableItemsHash.remove(item);
+            this.usableItems.remove(item);
         } 
     }
-
-    public Map<Usable, Integer> getUsableItems() {
-        return this.usableItemsHash;
+    
+    public void removeAllUsableItems() {
+        this.usableItems.clear();
     }
     
-     public Weapon getEquippedWeapon() {
+    public Map<Usable, Integer> getUsableItems() {
+        return this.usableItems;
+    }
+    
+    public Weapon getEquippedWeapon() {
         return this.equippedWeapon;
     }
     

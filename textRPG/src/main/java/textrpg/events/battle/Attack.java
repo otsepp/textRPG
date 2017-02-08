@@ -44,7 +44,7 @@ public class Attack extends Command {
         }
     }
     
-    public BattleEvent getBattleEvent () {
+    public BattleEvent getBattleEvent() {
         return this.battle;
     }
     

@@ -33,7 +33,7 @@ public class SelectItem extends Command {
         return new CommandReturnValues(super.messages, super.newCommands);
     }
     
-    private void setCommands( Map<Usable, Integer> usables) {
+    private void setCommands(Map<Usable, Integer> usables) {
         super.newCommands.clear();
         for (Usable u : usables.keySet()) {
             Item uAsItem = (Item) u;
