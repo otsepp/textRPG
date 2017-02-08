@@ -60,17 +60,17 @@
                 
                 <targetClasses>
                     <param>textrpg.characters.Player</param>
-                    <param>textrpg.events.battle.*</param>
-                    <param>textrpg.events.ending.*</param>
-                    <param>textrpg.events.straightpath.*</param>
+                    <param>textrpg.event.battle.*</param>
+                    <param>textrpg.event.ending.*</param>
+                    <param>textrpg.event.straightpath.*</param>
                     <param>textrpg.items.Inventory</param>
                 </targetClasses>
                 
                 <targetTests>
                     <param>textrpg.characters.PlayerTest</param>
-                    <param>textrpg.events.battle.*</param>
-                    <param>textrpg.events.ending.*</param>
-                    <param>textrpg.events.straightpath.*</param>
+                    <param>textrpg.event.battle.*</param>
+                    <param>textrpg.event.ending.*</param>
+                    <param>textrpg.event.straightpath.*</param>
                     <param>textrpg.items.InventoryTest</param>
                 </targetTests>
                 

@@ -1,5 +1,7 @@
-package textrpg.events.battle;
+package textrpg.event.battle;
 
+import textrpg.event.battle.BattleEvent;
+import textrpg.event.battle.Attack;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;

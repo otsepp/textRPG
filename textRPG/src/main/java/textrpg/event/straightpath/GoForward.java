@@ -1,5 +1,5 @@
 
-package textrpg.events.straightpath;
+package textrpg.event.straightpath;
 
 import java.util.ArrayList;
 import textrpg.command.Command;

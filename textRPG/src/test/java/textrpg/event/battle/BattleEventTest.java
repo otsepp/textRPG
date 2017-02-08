@@ -1,7 +1,7 @@
 
-package textrpg.events.battle;
+package textrpg.event.battle;
 
-import textrpg.events.battle.BattleEvent;
+import textrpg.event.battle.BattleEvent;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;

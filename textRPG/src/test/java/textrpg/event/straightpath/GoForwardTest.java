@@ -1,7 +1,7 @@
 
-package textrpg.events.straightpath;
+package textrpg.event.straightpath;
 
-import textrpg.events.straightpath.GoForward;
+import textrpg.event.straightpath.GoForward;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;

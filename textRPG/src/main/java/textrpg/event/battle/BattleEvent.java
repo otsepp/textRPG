@@ -1,5 +1,5 @@
 
-package textrpg.events.battle;
+package textrpg.event.battle;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,11 +7,11 @@ import java.util.Scanner;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.Command;
-import textrpg.events.battle.BattleEvent;
-import textrpg.events.ending.EndingEvent;
+import textrpg.event.battle.BattleEvent;
+import textrpg.event.ending.EndingEvent;
 import textrpg.event.GameEvent;
 import textrpg.event.GameEventReturnValues;
-import textrpg.events.straightpath.StraightPathEvent;
+import textrpg.event.straightpath.StraightPathEvent;
 
 
 public class GameText {

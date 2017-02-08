@@ -1,7 +1,7 @@
 
-package textrpg.events.ending;
+package textrpg.event.ending;
 
-import textrpg.events.ending.Quit;
+import textrpg.event.ending.Quit;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

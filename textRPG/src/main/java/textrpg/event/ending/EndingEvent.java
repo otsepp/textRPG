@@ -1,5 +1,5 @@
 
-package textrpg.events.ending;
+package textrpg.event.ending;
 
 import java.util.ArrayList;
 import textrpg.event.GameEvent;

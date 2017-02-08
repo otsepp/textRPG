@@ -1,44 +1,44 @@
 
-package textrpg.events.ending;
+package textrpg.event.straightpath;
 
-import textrpg.events.ending.EndingEvent;
+import textrpg.event.straightpath.StraightPathEvent;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 import textrpg.command.Command;
 import textrpg.event.GameEventReturnValues;
-import static org.junit.Assert.assertEquals;
 
-public class EndingEventTest {
+
+public class StraightPathEventTest {
     
-    private EndingEvent endEvent;
+    private StraightPathEvent event;
     
-    public EndingEventTest() {
+    public StraightPathEventTest() {
     }
     
     @Before
     public void setUp() {
-        this.endEvent = new EndingEvent();
+        this.event = new StraightPathEvent();
     }
     
-    
+
     @Test
     public void commandsAreCreated() {
-        List<Command> commands = this.endEvent.getCommands();
+        List<Command> commands = this.event.getCommands();
         assertEquals(1, commands.size());
         assertEquals(true, commands.get(0) != null);
     }
     
-    
     @Test
     public void initiateEventDeniesWrongInput() {
-        assertEquals(null, this.endEvent.initiateEvent(-1));
-        assertEquals(null, this.endEvent.initiateEvent(1));
+        assertEquals(null, this.event.initiateEvent(-1));
+        assertEquals(null, this.event.initiateEvent(1));
     }
     
     @Test
     public void initiateEventWorks() {
-        GameEventReturnValues ret = this.endEvent.initiateEvent(0);
+        GameEventReturnValues ret = this.event.initiateEvent(0);
 
         assertEquals(false, ret.getEventContinues());
         
