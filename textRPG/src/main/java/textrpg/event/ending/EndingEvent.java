@@ -4,7 +4,9 @@ package textrpg.event.ending;
 import java.util.ArrayList;
 import textrpg.event.GameEvent;
 
-
+/**
+ * Tapahtuma, joka lopettaa pelin.
+ */
 public class EndingEvent extends GameEvent {
     
     public EndingEvent() {

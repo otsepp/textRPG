@@ -1,6 +1,9 @@
 
 package textrpg.items;
 
+/**
+ * Kuvaa tavaraa.
+ */
 public abstract class Item {
     private String name;
     

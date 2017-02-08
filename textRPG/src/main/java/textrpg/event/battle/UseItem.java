@@ -19,7 +19,11 @@ public class UseItem extends Command {
         this.item = item;
     }
     
-    
+    /**
+     * Komento suoritetaan. Kun tavara on käytetty, sen määrää vähennetään pelaajan repusta tai se poistetaan.
+     * @return CommandReturnValues-olio sisältää komenttiin liittyvät viestit ja uudet komennot. Uudet komennot ovat 
+     * BattleEvent-tapahtuman oletuskomennot.
+     */
     @Override
     public CommandReturnValues executeCommand() {
         this.battle.setPlayerTurn(false);

@@ -5,6 +5,12 @@ import java.util.ArrayList;
 import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
 
+/**
+ * StraightPathEvent-luokkaan liittyvä komento, jonka jälkeen pelaaja liikkuu eteenpäin. 
+ * <p>
+ * Huom. voidaan ehkä käyttää myöhemmin.
+ * </p>
+*/
 public class GoForward extends Command {
          
     public GoForward() {

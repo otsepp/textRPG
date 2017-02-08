@@ -13,7 +13,9 @@ import textrpg.event.GameEvent;
 import textrpg.event.GameEventReturnValues;
 import textrpg.event.straightpath.StraightPathEvent;
 
-
+/**
+*Tekstipohjainen versio pelistä (UI tulossa).
+*/
 public class GameText {
     
     private Player player;
@@ -26,6 +28,9 @@ public class GameText {
         s = new Scanner(System.in);
     }
     
+    /**
+     * Metodi, jolla peli aloitetaan. Iteroi luodut pelitapahtumat ja lopettaa pelin, jos joku tapahtuma tappaa pelaajan.
+    */
     public void start() {
         System.out.println("Welcome...\n");
         createEvents();
@@ -41,18 +46,24 @@ public class GameText {
         }
     }
     
-    public boolean handleEvent(GameEvent e) {
-        System.out.println("****" + e.getStartMessage() + "****");
+    /**
+    * Käsittelee pelitapahtuman. Esittää pelaajalle komennot. Palauttaa true, jos komennon suorittamisen
+    * jälkeen pelaaja ei ole kuollut.
+    * @param event Käsiteltävä tapahtuma.
+    * @return true, jos pelaaja on hengissä tapahtuman jälkeen.
+    */
+    public boolean handleEvent(GameEvent event) {
+        System.out.println("****" + event.getStartMessage() + "****");
         
         boolean continueEvent = true;
         while (continueEvent) {
             
-            List<Command> commands = e.getCommands();
+            List<Command> commands = event.getCommands();
             for (int i = 0; i < commands.size(); i++) {
                 System.out.println((i + 1) + ". " + commands.get(i).getDescription());
             }
             System.out.println("");
-            continueEvent = chooseAndExecuteCommand(e, commands);
+            continueEvent = chooseAndExecuteCommand(event);
             System.out.println("");
         }
         
@@ -63,7 +74,12 @@ public class GameText {
         }
     }
     
-    public boolean chooseAndExecuteCommand(GameEvent e, List<Command> commands) {
+    /**
+     * Lukee pelaajan valitseman komennon, ja suorittaa sen.
+     * @param e Tällä hetkellä käsiteltävä tapahtuma.
+     * @return true, jos tapahtuma jatkuu.
+     */
+    public boolean chooseAndExecuteCommand(GameEvent e) {
         while (true) {
             System.out.print("Choose command: ");
             int commandId;
@@ -90,6 +106,9 @@ public class GameText {
         }
     }
     
+    /**
+     * Luo pelin eri tapahtumat.
+     */
     public void createEvents() {
         this.events.add(new StraightPathEvent());
         this.events.add(new BattleEvent(this.player, new Enemy("Bandit")));

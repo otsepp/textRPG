@@ -1,6 +1,10 @@
 
 package textrpg.items;
 
+/**
+ * Kuvaa asetta, jolla on nimi ja tietty määrä vahinkoa, jota se aiheuttaa.
+ * @author Glarthir
+ */
 public class Weapon extends Item {
     
     private int damage;

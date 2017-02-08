@@ -3,6 +3,9 @@ package textrpg.command;
 
 import java.util.List;
 
+/**
+ * Yliluokka, josta kaikki tapahtumiin liittyvät komennot periytyvät. 
+ */
 public abstract class Command {
     protected String description;
     protected List<String> messages;
@@ -26,6 +29,10 @@ public abstract class Command {
         return this.newCommands;
     }
     
+    /**
+     * Aliluokissa ylikirjoitettava metodi, joka sisältää komennon logiikan. 
+     * @return CommandReturnValues-olio sisältää viestit ja uudet komennot tapahtumaa varten.
+     */
     public abstract CommandReturnValues executeCommand();
 
 }

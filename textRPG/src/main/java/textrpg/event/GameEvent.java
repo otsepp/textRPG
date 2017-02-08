@@ -6,8 +6,17 @@ import java.util.List;
 import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
 
+/**
+ * Pelitapahtuma.
+ */
 public abstract class GameEvent {
+    /**
+     * Tapahtuman alussa näyettävä viesti.
+     */
     protected String startMessage;
+    /**
+     * Tapahtumaan liittyvät komennot.
+     */
     protected List<Command> commands;
     
     public GameEvent(String startMessage, List<Command> commands) {
@@ -23,6 +32,12 @@ public abstract class GameEvent {
         return this.commands;
     }
     
+    /**
+     * Suorittaa pelaajan valitseman komennon indeksin perusteella. Metodi tarkistaa, onko indeksi hyväksyttävä. 
+     * @param commandId pelaajan valitseman komennon indeksi
+     * @return  GameEventReturnValues-olio sisältää viestit ja totuusarvon joka ilmaisee, että jatkuuko tapahtuma.
+     * Palauttaa null, jos indeksi on väärä.
+     */
     public GameEventReturnValues initiateEvent(int commandId) {
         if (commandId < 0 || commandId > this.commands.size() - 1) {
             return null;
@@ -41,6 +56,9 @@ public abstract class GameEvent {
         return new GameEventReturnValues(returnMessages, eventContinues);
     }
     
+    /**
+     * Asettaa oletuskomennot.
+     */
     protected abstract void setDefaultCommands();
     
 }

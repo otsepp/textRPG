@@ -3,6 +3,9 @@ package textrpg.items;
 
 import textrpg.characters.Player;
 
+/**
+ * Elämäpisteitä kasvattava eliksiiri.
+ */
 public class HealthPotion extends Item implements Usable {
     private final int healAmount = 40;
     private Inventory inventory;

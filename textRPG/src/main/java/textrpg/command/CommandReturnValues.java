@@ -3,6 +3,9 @@ package textrpg.command;
 
 import java.util.List;
 
+/**
+ * Käytetään komentojen palautusarvona. Sisältää komennon palauttamat viestit ja uudet komennot tapahtumaa varten.
+ */
 public class CommandReturnValues {
     
     private List<String> messages;

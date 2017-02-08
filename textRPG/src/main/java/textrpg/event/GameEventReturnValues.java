@@ -3,6 +3,9 @@ package textrpg.event;
 
 import java.util.List;
 
+/**
+ * Käytetään tapahtumien palautusarvona. Sisältää viestit ja totuusarvon joka ilmaisee, että jatkuuko tapahtuma.
+ */
 public class GameEventReturnValues {
     private List<String> messages;
     private boolean eventContinues;

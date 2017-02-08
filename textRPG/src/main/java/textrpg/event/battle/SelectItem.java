@@ -18,7 +18,11 @@ public class SelectItem extends Command {
         this.battle = battle;
     }
 
-    
+    /**
+     * Suorittaa komennon. Jos pelaajalla on käytettäviä tavaroita, metodi palauttaa UseItem-komentoja näiden perusteella. Muuten
+     * komennot pysyvät samana. Komento ei lopeta pelaajan vuoroa.
+     * @return CommandReturnValues-olio sisältää komenttiin liittyvät viestit ja uudet komennot. 
+     */
     @Override
     public CommandReturnValues executeCommand() {
         battle.setPlayerTurn(true);

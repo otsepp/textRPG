@@ -9,13 +9,14 @@ import textrpg.command.Command;
 import textrpg.event.GameEvent;
 import textrpg.event.GameEventReturnValues;
 
+/**
+ * Yhteenotto vihollisen kanssa.
+ */
 public class BattleEvent extends GameEvent {
 
     private Player player;
     private Enemy enemy;
     private boolean playerTurn;
-    
-    private List<Command> defaultCommands;
     
     public BattleEvent(Player player, Enemy enemy) {
         super("", new ArrayList());
@@ -44,6 +45,12 @@ public class BattleEvent extends GameEvent {
         super.commands.add(new SelectItem(this));
     }
     
+    /**
+     * Suorittaa pelaajan valitseman komennon indeksin perusteella. Kutsuu ensin yliluokan metodia, jonka palatusarvojen perusteella
+     * määritetään, että isketäänkö pelaajaa tai onko vihollinen kuollut.
+     * @param commandId pelaajan valitseman komennon indeksi.
+     * @return GameEventReturnValues-olio sisältää viestit ja totuusarvon joka ilmaisee, että jatkuuko tapahtuma.
+     */
     @Override
     public GameEventReturnValues initiateEvent(int commandId) {
         GameEventReturnValues returnValues = super.initiateEvent(commandId);
@@ -62,6 +69,11 @@ public class BattleEvent extends GameEvent {
         return returnValues;
     }
     
+    /**
+     * Suoritetaan pelaajan vuoron päättyessä. Muokkaa tapahtumaan liittyvää palautusoliota sen perusteella,
+     * että kuoleeke pelaaja iskusta vai ei.
+     * @param returnValues Tapahtuman palatusarvo-olio
+     */
     private void attackPlayer(GameEventReturnValues returnValues) {
         List<String> messages = returnValues.getMessages();
 

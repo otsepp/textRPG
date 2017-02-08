@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Reppu. Sisältää käytettävissä olevan aseen ja kokoelman käytettäviä tavaroita.
+ */
 public class Inventory {
     private Weapon equippedWeapon;
     private Map<Usable, Integer> usableItems;
@@ -19,7 +22,10 @@ public class Inventory {
         addUsableItem(new HealthPotion(this));
     }
 
-    
+    /**
+     * Lisää reppuun käytettävän tavaran.
+     * @param item Lisättävä tavara.
+     */
     public void addUsableItem(Usable item) {
         if (!this.usableItems.containsKey(item)) {
             this.usableItems.put(item, 1);
@@ -29,6 +35,10 @@ public class Inventory {
         }
     }
     
+    /**
+     * Poistaa repusta 
+     * @param item Poistettava tavara.
+     */
     public void removeUsableItem(Usable item) {
         int count = this.usableItems.get(item);
         
@@ -40,6 +50,9 @@ public class Inventory {
         } 
     }
     
+    /**
+     * Tyhjentää käytettävien tavaroiden kokoelman.
+     */
     public void removeAllUsableItems() {
         this.usableItems.clear();
     }

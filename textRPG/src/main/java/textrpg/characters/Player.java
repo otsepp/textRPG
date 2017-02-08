@@ -23,6 +23,9 @@ public class Player extends Character {
         return this.inventory;
     }
     
+    /**
+     * Summaa pelaajan baseDamage:n ja tällä hetkellä käytössä olevan aseen vahinkopisteet.
+     */
     public void updateDamage() {
         int weaponDamage = this.inventory.getEquippedWeapon().getDamage();
         this.totalDamage = super.getBaseDamage() + weaponDamage;

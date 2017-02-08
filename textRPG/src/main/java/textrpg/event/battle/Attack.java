@@ -9,7 +9,9 @@ import textrpg.characters.Player;
 import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
 
-
+/**
+ * Komento, jolla pelaaja iskee vihollista.
+ */
 public class Attack extends Command {
     private Player player;
     private Enemy enemy;
@@ -24,6 +26,11 @@ public class Attack extends Command {
         this.battle = battle;
     }
 
+    /**
+     * 
+     * @return CommandReturnValues-olio sisältää komentoon liittyvät viestit ja uudet komennot. Uudet komennot ovat null-arvoiset,
+     * jos vihollinen kuolee. Muuten ne pysyvät samana kuin ennen komennon suoritusta.
+     */
     @Override
     public CommandReturnValues executeCommand() {
         this.battle.setPlayerTurn(false);

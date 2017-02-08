@@ -3,7 +3,9 @@ package textrpg.event.straightpath;
 
 import java.util.ArrayList;
 import textrpg.event.GameEvent;
-
+/**
+ * Tapahtuma, jossa pelaaja kohtaa suoran polun.
+ */
 public class StraightPathEvent extends GameEvent {
     
     public StraightPathEvent() {
