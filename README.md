@@ -9,6 +9,6 @@ Tekstipohjainen rpg-peli, ohjelmoinnin harjoitustyö (WIP)
 
 **Raportit**
 
-[pit](https://htmlpreview.github.io/?https://github.com/otsepp/textRPG/blob/master/dokumentaatio/pit/index.html)
+[pit](http://htmlpreview.github.io/?https://github.com/otsepp/textRPG/blob/master/dokumentaatio/pit/201702081816/index.html)
 
 [checkstyle](https://htmlpreview.github.io/?https://github.com/otsepp/textRPG/blob/master/dokumentaatio/checkstyle/site/checkstyle.html)
