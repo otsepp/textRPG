@@ -4,8 +4,6 @@ package textrpg.ui;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -31,7 +29,7 @@ public class MenuScreen extends JPanel {
     }
     
     
-    private final JLabel createLogoLabel() {
+    private JLabel createLogoLabel() {
         JLabel logo = new JLabel("textRPG");
         
         Font font = new Font("High Tower Text", Font.PLAIN, 45);
@@ -39,8 +37,8 @@ public class MenuScreen extends JPanel {
         return logo;
     }
     
-    private final JButton createStartButton() {
-        JButton startButton = new JButton("Start");
+    private JButton createStartButton() {
+        JButton startButton = new JButton("Begin");
         
         startButton.addActionListener(e -> {
             this.setVisible(false);
@@ -56,7 +54,7 @@ public class MenuScreen extends JPanel {
         
         this.add(Box.createRigidArea(new Dimension(0, 100)));
         this.add(this.logo);
-        this.add(Box.createRigidArea(new Dimension(0, 150)));
+        this.add(Box.createRigidArea(new Dimension(0, 220)));
         this.add(this.startButton);
     }
 }

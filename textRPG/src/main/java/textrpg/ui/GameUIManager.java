@@ -32,22 +32,23 @@ public class GameUIManager {
     private JFrame createFrame() {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(500, 500));
+        frame.setPreferredSize(new Dimension(600, 600));
         frame.getContentPane().setBackground(Color.LIGHT_GRAY);
         return frame;
     }
     
     public void switchToGameScreen() {
+        this.gameScreen.setVisible(true);
         this.frame.getContentPane().add(this.gameScreen);
         
-        this.menuScreen.setVisible(true);
         this.frame.getContentPane().remove(this.menuScreen);
     }
     
+    //ei kaytossa nyt
     public void switchToMenuScreen() {
+        this.menuScreen.setVisible(true);
         this.frame.getContentPane().add(this.menuScreen);
         
-        this.gameScreen.setVisible(true);
         this.frame.getContentPane().remove(this.gameScreen);
     }
     
