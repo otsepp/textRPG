@@ -51,7 +51,6 @@ public class MenuScreen extends JPanel {
         JButton startButton = new JButton("Begin");
         
         startButton.addActionListener(e -> {
-            this.setVisible(false);
             this.uiManager.switchToGameScreen();
         });
         

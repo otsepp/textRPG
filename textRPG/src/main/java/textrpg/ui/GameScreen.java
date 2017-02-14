@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import textrpg.GameInterpreter;
 import textrpg.command.Command;
+import textrpg.event.GameEvent;
 
 public class GameScreen extends JPanel {
     private GameInterpreter gameInterpreter;
@@ -39,27 +40,37 @@ public class GameScreen extends JPanel {
     }
     
     
+    public void returnToMenu() {
+        this.uiManager.switchToMenuScreen();
+    }
+    
     public void updateEventImage(ImageIcon newIcon) {
         this.eventImage.setIcon(this.gameInterpreter.getCurrentEvent().getEventImage());
     }
     
     public void updateMessagesArea(List<String> newMessages) {
         this.messagesArea.removeAll();
-
+        
         for (String msg : newMessages) {
             JLabel msgLabel = new JLabel(msg);
             this.messagesArea.add(msgLabel);
         }
+        this.messagesArea.revalidate();
+        this.messagesArea.repaint();
     }
     
     public void updateCommandsArea(List<Command> commands) {
         this.commandsArea.removeAll();
         
-        for (Command cmd : commands) {
+        for (int i = 0; i < commands.size(); i++) {
+            Command cmd = commands.get(i);
+            
             JButton cmdButton = new JButton(cmd.getDescription());
-            //add listener
+            cmdButton.addActionListener(new CommandButtonListener(this.gameInterpreter, this, i));
             this.commandsArea.add(cmdButton);
         }
+        this.commandsArea.revalidate();
+        this.messagesArea.repaint();
     }
     
      private void setUpComponents() {
@@ -92,7 +103,6 @@ public class GameScreen extends JPanel {
         
         for (String msg : initialMessages) {
             JLabel msgLabel = new JLabel(msg);
-            System.out.println(msgLabel.getText());
             area.add(msgLabel);
         }
         
@@ -109,7 +119,7 @@ public class GameScreen extends JPanel {
             Command c = commands.get(i);
 
             JButton cmdButton = new JButton(c.getDescription());
-            //add listener
+            cmdButton.addActionListener(new CommandButtonListener(this.gameInterpreter, this, i));
             area.add(cmdButton);
         }
         
@@ -131,7 +141,15 @@ public class GameScreen extends JPanel {
         
     @Override
     public void actionPerformed(ActionEvent e) {
+        boolean result = this.gameInterpreter.executeCommand(commandId);
+        if (result == false) {
+            this.gameScreen.returnToMenu();
+        }
+        GameEvent event = this.gameInterpreter.getCurrentEvent();
         
+        this.gameScreen.updateEventImage(event.getEventImage());
+        this.gameScreen.updateMessagesArea(this.gameInterpreter.getLatestMessages());
+        this.gameScreen.updateCommandsArea(event.getCommands());
     }
     
 }

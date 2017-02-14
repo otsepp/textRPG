@@ -51,6 +51,8 @@ public class BattleEvent extends GameEvent {
      * @param commandId pelaajan valitseman komennon indeksi.
      * @return GameEventReturnValues-olio sisältää viestit ja totuusarvon joka ilmaisee, että jatkuuko tapahtuma.
      */
+    
+    //TÄYTYY KORJATA
     @Override
     public GameEventReturnValues initiateEvent(int commandId) {
         GameEventReturnValues returnValues = super.initiateEvent(commandId);

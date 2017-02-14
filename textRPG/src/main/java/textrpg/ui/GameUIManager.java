@@ -40,6 +40,8 @@ public class GameUIManager {
     }
     
     public void switchToGameScreen() {
+        this.menuScreen.setVisible(false);
+        
         this.gameScreen.setVisible(true);
         this.frame.getContentPane().add(this.gameScreen);
         
@@ -47,6 +49,8 @@ public class GameUIManager {
     }
     
     public void switchToMenuScreen() {
+        this.gameScreen.setVisible(false);
+        
         this.menuScreen.setVisible(true);
         this.frame.getContentPane().add(this.menuScreen);
         
