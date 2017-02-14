@@ -22,8 +22,10 @@ public class GameUIManager {
     
     
     public void createAndShowGUI() {
-        this.frame.getContentPane().add(this.menuScreen);
-        
+//        this.frame.getContentPane().add(this.menuScreen);
+        this.frame.getContentPane().add(this.gameScreen);
+
+
         this.frame.pack();
         this.frame.setLocationRelativeTo(null);
         this.frame.setVisible(true);
@@ -44,7 +46,6 @@ public class GameUIManager {
         this.frame.getContentPane().remove(this.menuScreen);
     }
     
-    //ei kaytossa nyt
     public void switchToMenuScreen() {
         this.menuScreen.setVisible(true);
         this.frame.getContentPane().add(this.menuScreen);

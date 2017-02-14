@@ -29,6 +29,16 @@ public class MenuScreen extends JPanel {
     }
     
     
+    private void setUpComponents() {
+        this.logo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        this.add(Box.createRigidArea(new Dimension(0, 100)));
+        this.add(this.logo);
+        this.add(Box.createRigidArea(new Dimension(0, 220)));
+        this.add(this.startButton);
+    }
+    
     private JLabel createLogoLabel() {
         JLabel logo = new JLabel("textRPG");
         
@@ -46,15 +56,5 @@ public class MenuScreen extends JPanel {
         });
         
         return startButton;
-    }
-    
-    private void setUpComponents() {
-        this.logo.setAlignmentX(Component.CENTER_ALIGNMENT);
-        this.startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
-        this.add(Box.createRigidArea(new Dimension(0, 100)));
-        this.add(this.logo);
-        this.add(Box.createRigidArea(new Dimension(0, 220)));
-        this.add(this.startButton);
     }
 }

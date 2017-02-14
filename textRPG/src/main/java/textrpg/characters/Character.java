@@ -52,6 +52,13 @@ public abstract class Character {
         this.baseDamage = baseDamage;
     }
     
+    public boolean isDead() {
+        if (this.health > 0) {
+            return false;
+        }
+        return true;
+    }
+    
     public void takeDamage(int damageDone) {
         this.health -= damageDone;
     }

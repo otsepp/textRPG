@@ -3,6 +3,7 @@ package textrpg.event;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
 
@@ -19,9 +20,13 @@ public abstract class GameEvent {
      */
     protected List<Command> commands;
     
+    private ImageIcon eventImage;
+    
     public GameEvent(String startMessage, List<Command> commands) {
         this.startMessage = startMessage;
         this.commands = commands;
+        
+        this.eventImage =  new ImageIcon(GameEvent.class.getResource("/event_images/test_image.png"));
     }
     
     public String getStartMessage() {
@@ -30,6 +35,10 @@ public abstract class GameEvent {
     
     public List<Command> getCommands() {
         return this.commands;
+    }
+    
+    public ImageIcon getEventImage() {
+        return this.eventImage;
     }
     
     /**
