@@ -20,6 +20,9 @@ public class Game {
     private GameEvent currentEvent;
     private List<String> latestMessages;
     
+    /**
+     * Luo uuden peliolion ja asettaa sen alkutilaan.
+     */
     public Game() {
         this.latestMessages = new ArrayList();
         setDefaultState();
@@ -77,9 +80,9 @@ public class Game {
         this.events.removeFirst();
         this.currentEvent = getNextEvent();
         
-         this.latestMessages.clear();
-         this.latestMessages.add(this.currentEvent.getStartMessage());
-         return GameStatus.GAME_CONTINUE;
+        this.latestMessages.clear();
+        this.latestMessages.add(this.currentEvent.getStartMessage());
+        return GameStatus.GAME_CONTINUE;
     }
     
     /**

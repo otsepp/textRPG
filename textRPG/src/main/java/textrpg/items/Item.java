@@ -7,6 +7,10 @@ package textrpg.items;
 public abstract class Item {
     private String name;
     
+    /**
+     * Luo uuden olion annetulla nimellä.
+     * @param name Tavaran nimi
+     */
     public Item(String name) {
         this.name = name;
     }

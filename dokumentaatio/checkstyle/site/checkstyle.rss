@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 25,
+      <title>File: 29,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.events.battle.SelectItem.java">textrpg/events/battle/SelectItem.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.main.GameText.java">textrpg/main/GameText.java</a>
                 </td>
                 <td>
                   0
@@ -61,6 +61,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#textrpg.items.Item.java">textrpg/items/Item.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.battle.UseItem.java">textrpg/event/battle/UseItem.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +144,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.events.straightpath.StraightPathEvent.java">textrpg/events/straightpath/StraightPathEvent.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.main.GameStatus.java">textrpg/main/GameStatus.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.ui.CommandButtonListener.java">textrpg/ui/CommandButtonListener.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +186,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.ui.GameScreen.java">textrpg/ui/GameScreen.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.battle.BattleEvent.java">textrpg/event/battle/BattleEvent.java</a>
                 </td>
                 <td>
                   0
@@ -172,7 +200,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.Main.java">textrpg/Main.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.ui.GameScreen.java">textrpg/ui/GameScreen.java</a>
                 </td>
                 <td>
                   0
@@ -200,7 +228,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.events.ending.EndingEvent.java">textrpg/events/ending/EndingEvent.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.ending.EndingEvent.java">textrpg/event/ending/EndingEvent.java</a>
                 </td>
                 <td>
                   0
@@ -214,7 +242,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.events.battle.BattleEvent.java">textrpg/events/battle/BattleEvent.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.ui.GameUIManager.java">textrpg/ui/GameUIManager.java</a>
                 </td>
                 <td>
                   0
@@ -228,7 +256,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.events.straightpath.GoForward.java">textrpg/events/straightpath/GoForward.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.straightpath.StraightPathEvent.java">textrpg/event/straightpath/StraightPathEvent.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.battle.Attack.java">textrpg/event/battle/Attack.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.main.Game.java">textrpg/main/Game.java</a>
                 </td>
                 <td>
                   0
@@ -284,34 +340,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.GameText.java">textrpg/GameText.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.events.battle.UseItem.java">textrpg/events/battle/UseItem.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#textrpg.items.Usable.java">textrpg/items/Usable.java</a>
                 </td>
                 <td>
@@ -340,6 +368,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.main.Main.java">textrpg/main/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#textrpg.items.Weapon.java">textrpg/items/Weapon.java</a>
                 </td>
                 <td>
@@ -354,7 +396,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.ui.GameUI.java">textrpg/ui/GameUI.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.ending.Quit.java">textrpg/event/ending/Quit.java</a>
                 </td>
                 <td>
                   0
@@ -368,7 +410,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.events.ending.Quit.java">textrpg/events/ending/Quit.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.straightpath.GoForward.java">textrpg/event/straightpath/GoForward.java</a>
                 </td>
                 <td>
                   0
@@ -382,7 +424,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.events.battle.Attack.java">textrpg/events/battle/Attack.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.battle.SelectItem.java">textrpg/event/battle/SelectItem.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.command.Continue.java">textrpg/command/Continue.java</a>
                 </td>
                 <td>
                   0

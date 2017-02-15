@@ -8,6 +8,10 @@ public class Player extends Character {
     private Inventory inventory;
     private int totalDamage;
     
+    /**
+     * Luo pelaajaolion.
+     * @param name Pelaajan nimi
+     */
     public Player(String name) {
         super(name, 150);
         this.inventory = new Inventory();

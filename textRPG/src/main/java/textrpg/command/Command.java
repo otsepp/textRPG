@@ -11,6 +11,12 @@ public abstract class Command {
     protected List<String> messages;
     protected List<Command> newCommands;
     
+    /**
+     * Komento-olioiden yliluokkakonstruktori.
+     * @param description Komennon kuvaus
+     * @param messages Komennon palauttamat viestit
+     * @param newCommands Komennon palauttamat komennot
+     */
     public Command(String description, List<String> messages, List<Command> newCommands) {
         this.description = description;
         this.messages = messages;

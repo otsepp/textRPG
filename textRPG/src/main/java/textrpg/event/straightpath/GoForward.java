@@ -10,7 +10,10 @@ import textrpg.command.Continue;
  * StraightPathEvent-luokkaan liittyvä komento, jonka jälkeen pelaaja liikkuu eteenpäin. 
 */
 public class GoForward extends Command {
-         
+    
+    /**
+     * Luo uuden olion.
+     */
     public GoForward() {
         super("Go forward.",    
                 new ArrayList(),    

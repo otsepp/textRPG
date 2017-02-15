@@ -21,8 +21,8 @@ public abstract class Character {
     
     /**
      * Olion elämäpisteiden maksimiarvoksi annetaan annettu määrä.
-     * @param name  Hahmolle annettava nimi.
-     * @param maxHealth Hahmon maksimielämäpisteet.
+     * @param name  Hahmolle annettava nimi
+     * @param maxHealth Hahmon maksimielämäpisteet
      */
     public Character(String name, int maxHealth) {
         this.name = name;
@@ -52,6 +52,10 @@ public abstract class Character {
         this.baseDamage = baseDamage;
     }
     
+    /**
+     * Tarkistaa, että onko hahmo kuollut.
+     * @return True, jos hahmo on kuollut.
+     */
     public boolean isDead() {
         if (this.health > 0) {
             return false;
@@ -59,6 +63,10 @@ public abstract class Character {
         return true;
     }
     
+    /**
+     * Vähentää hahmon elämäpisteitä.
+     * @param damageDone Aiheutetun vahingon määrä.
+     */
     public void takeDamage(int damageDone) {
         this.health -= damageDone;
     }

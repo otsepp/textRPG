@@ -10,6 +10,11 @@ public class GameEventReturnValues {
     private List<String> messages;
     private boolean eventContinues;
     
+    /**
+     * Luo uuden olion.
+     * @param messages Tapahtuman luomat viestit
+     * @param eventContinues Ilmaisee, että jatkuuko tapahtuma vai ei
+     */
     public GameEventReturnValues(List<String> messages, boolean eventContinues) {
         this.messages = messages;
         this.eventContinues = eventContinues;

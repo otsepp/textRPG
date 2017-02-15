@@ -15,6 +15,11 @@ public abstract class GameEvent {
     protected List<Command> commands;
     private ImageIcon eventImage;
     
+    /**
+     * Tapahtumien yliluokkakonstruktori.
+     * @param startMessage Tapahtuman aloitusviesti. Näytetään, kun tapahtuma aloitetaan.
+     * @param commands Tapahtumaan liittyvät komennot.
+     */
     public GameEvent(String startMessage, List<Command> commands) {
         this.startMessage = startMessage;
         this.commands = commands;

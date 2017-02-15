@@ -7,13 +7,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Reppu. Sisältää käytettävissä olevan aseen ja kokoelman käytettäviä tavaroita.
+ * Reppua kuvaava luokka. Sisältää käytettävissä olevan aseen ja kokoelman käytettäviä tavaroita.
  */
 public class Inventory {
     private Weapon equippedWeapon;
     private Map<Usable, Integer> usableItems;
     
-    
+    /**
+     * Luo uuden olion. Luo oletuksen aseen ja kaksi elämäjuomaa.
+     */
     public Inventory() {
         this.equippedWeapon = new Weapon("Iron Dagger", 10);
         
@@ -24,7 +26,7 @@ public class Inventory {
 
     /**
      * Lisää reppuun käytettävän tavaran.
-     * @param item Lisättävä tavara.
+     * @param item Lisättävä tavara
      */
     public void addUsableItem(Usable item) {
         if (!this.usableItems.containsKey(item)) {
@@ -36,7 +38,7 @@ public class Inventory {
     }
     
     /**
-     * Poistaa repusta 
+     * Poistaa repusta käytettävän tavaran.
      * @param item Poistettava tavara.
      */
     public void removeUsableItem(Usable item) {

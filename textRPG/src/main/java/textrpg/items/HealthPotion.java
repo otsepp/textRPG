@@ -10,6 +10,10 @@ public class HealthPotion extends Item implements Usable {
     private final int healAmount = 40;
     private Inventory inventory;
     
+    /**
+     * Luo uuden olion.
+     * @param inventory Reppu, johon uusi olio kuuluu
+     */
     public HealthPotion(Inventory inventory) {
         super("Health Potion");
         this.inventory = inventory;

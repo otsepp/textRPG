@@ -7,10 +7,20 @@ import textrpg.command.CommandReturnValues;
 import textrpg.items.Item;
 import textrpg.items.Usable;
 
+/**
+ * Komento, jolla pelaaja käyttää valitun tavaran.
+ * @author Glarthir
+ */
 public class UseItem extends Command {
     private BattleEvent battle;
     private Item item;
     
+    /**
+     * Luo uuden olion.
+     * @param battle Yhteenottotapahtuma, jossa komento suoritetaan
+     * @param item Käytettävä tavara
+     * @param amount Tavaran lukumäärä pelaajan repussa
+     */
     public UseItem(BattleEvent battle, Item item, int amount) {
         super(item.getName() + " (" + amount + ")",
                 new ArrayList(),

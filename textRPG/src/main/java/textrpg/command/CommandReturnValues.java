@@ -11,6 +11,11 @@ public class CommandReturnValues {
     private List<String> messages;
     private List<Command> newCommands;
     
+    /**
+     * Luo uuden olion.
+     * @param messages Palautettavat viestit
+     * @param newCommands Uudet komennot
+     */
     public CommandReturnValues(List<String> messages, List<Command> newCommands) {
         this.messages = messages;
         this.newCommands = newCommands;

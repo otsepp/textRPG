@@ -9,6 +9,9 @@ import textrpg.event.GameEvent;
  */
 public class StraightPathEvent extends GameEvent {
     
+    /**
+     * Luo uuden olion.
+     */
     public StraightPathEvent() {
         super("You see a straight path in front of you.",      
                 new ArrayList());

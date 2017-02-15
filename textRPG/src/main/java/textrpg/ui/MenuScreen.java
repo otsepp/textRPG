@@ -19,6 +19,10 @@ public class MenuScreen extends JPanel {
     private JLabel logo;
     private JButton startButton;
     
+    /**
+     * Luo uuden olion.
+     * @param uiManager Peliruutuja hallitseva olio.
+     */
     public MenuScreen(GameUIManager uiManager) {
         this.setOpaque(false);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

@@ -17,6 +17,10 @@ public class Attack extends Command {
     private Enemy enemy;
     private BattleEvent battle;
     
+    /**
+     * Luo uuden olion.
+     * @param battle Yhteenottotapahtuma, jossa komento suoritetaan
+     */
     public Attack(BattleEvent battle) {
         super("Attack", //desc
                 new ArrayList(),    //messages
@@ -27,9 +31,9 @@ public class Attack extends Command {
     }
 
     /**
-     * 
-     * @return CommandReturnValues-olio sisältää komentoon liittyvät viestit ja uudet komennot. Uudet komennot ovat null-arvoiset,
+     * Palauttaa komennon suorittamiseen liittyvät viestit ja uudet komennot. Uudet komennot ovat null-arvoiset,
      * jos vihollinen kuolee. Muuten ne pysyvät samana kuin ennen komennon suoritusta.
+     * @return CommandReturnValues-olio sisältää komentoon liittyvät viestit ja uudet komennot
      */
     @Override
     public CommandReturnValues executeCommand() {

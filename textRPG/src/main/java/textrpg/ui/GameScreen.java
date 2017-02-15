@@ -18,6 +18,10 @@ public class GameScreen extends JPanel {
     private JPanel messagesArea;
     private JPanel commandsArea;
     
+    /**
+     * Luo uuden olion.
+     * @param uiManager Peliruutuja hallitseva olio
+     */
     public GameScreen(GameUIManager uiManager) {
         this.setOpaque(false);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -80,8 +84,8 @@ public class GameScreen extends JPanel {
         this.commandsArea.revalidate();
         this.commandsArea.repaint();
     }
-     
-      private JLabel createEventImageLabel() {
+    
+    private JLabel createEventImageLabel() {
         JLabel label = new JLabel();
         
         ImageIcon icon = this.game.getCurrentEvent().getEventImage();
@@ -89,8 +93,8 @@ public class GameScreen extends JPanel {
         
         return label;
     }
-     
-     private JPanel createMessagesArea() {
+    
+    private JPanel createMessagesArea() {
         JPanel area  = new JPanel();
         area.setOpaque(false);
         area.setLayout(new BoxLayout(area, BoxLayout.Y_AXIS));
@@ -122,17 +126,17 @@ public class GameScreen extends JPanel {
         return area;
     }
     
-     private void setUpComponents() {
-         this.eventImage.setAlignmentX(CENTER_ALIGNMENT);
-         this.messagesArea.setAlignmentX(CENTER_ALIGNMENT);
-         
-         this.add(Box.createRigidArea(new Dimension(0, 50)));
-         this.add(this.eventImage);
-         this.add(Box.createRigidArea(new Dimension(0, 50)));
-         this.add(this.messagesArea);
-         this.add(Box.createRigidArea(new Dimension(0, 50)));
-         this.add(this.commandsArea);
-     }
+    private void setUpComponents() {
+        this.eventImage.setAlignmentX(CENTER_ALIGNMENT);
+        this.messagesArea.setAlignmentX(CENTER_ALIGNMENT);
+        
+        this.add(Box.createRigidArea(new Dimension(0, 50)));
+        this.add(this.eventImage);
+        this.add(Box.createRigidArea(new Dimension(0, 50)));
+        this.add(this.messagesArea);
+        this.add(Box.createRigidArea(new Dimension(0, 50)));
+        this.add(this.commandsArea);
+    }
     
 }
 

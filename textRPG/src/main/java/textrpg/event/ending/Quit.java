@@ -10,6 +10,10 @@ import textrpg.command.Continue;
  * Ending-event-luokkaan liittyvä komento.
  */
 public class Quit extends Command {
+    
+    /**
+     * Luo uuden olion.
+     */
     public Quit() {
         super("Quit game", 
                 new ArrayList(),   

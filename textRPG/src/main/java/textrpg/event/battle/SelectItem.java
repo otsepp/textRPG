@@ -8,9 +8,16 @@ import textrpg.command.CommandReturnValues;
 import textrpg.items.Item;
 import textrpg.items.Usable;
 
+/**
+ * Komento, jolla pelaaja voi valita käytettävän tavaran.
+ */
 public class SelectItem extends Command {
     private BattleEvent battle;
     
+    /**
+     * Luo uuden olion.
+     * @param battle Yhteenottotapahtuma, jossa komento suoritetaan
+     */
     public SelectItem(BattleEvent battle) {
         super("Select an item", //description  
                 new ArrayList(),    //messages

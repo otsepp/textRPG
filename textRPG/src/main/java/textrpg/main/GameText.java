@@ -22,7 +22,9 @@ public class GameText {
     private List<GameEvent> events;
     private Scanner s;
     
-    
+    /**
+     * Luo uuden peliolion.
+     */
     public GameText() {
         player = new Player("Player");
         events = new ArrayList();

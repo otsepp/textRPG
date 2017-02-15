@@ -5,6 +5,10 @@ import textrpg.ui.GameUIManager;
 
 public class Main {
 
+    /**
+     * Main-metodi.
+     * @param args 
+     */
     public static void main(String[] args) {
         startUIGame();
     }

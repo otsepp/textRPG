@@ -3,12 +3,16 @@ package textrpg.items;
 
 /**
  * Kuvaa asetta, jolla on nimi ja tietty määrä vahinkoa, jota se aiheuttaa.
- * @author Glarthir
  */
 public class Weapon extends Item {
     
     private int damage;
     
+    /**
+     * Luo uuden ase-olion.
+     * @param name Aseen nimi
+     * @param damage Aseen aiheuttama vahinko
+     */
     public Weapon(String name, int damage) {
         super(name);
         this.damage = damage;

@@ -18,6 +18,11 @@ public class BattleEvent extends GameEvent {
     private Enemy enemy;
     private boolean playerTurn;
     
+    /**
+     * Luo uuden olion.
+     * @param player Yhteenoton pelaajahahmo
+     * @param enemy Yhteenoton vihollishahmo
+     */
     public BattleEvent(Player player, Enemy enemy) {
         super("", new ArrayList());
         this.player = player;

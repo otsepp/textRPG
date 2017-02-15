@@ -9,7 +9,7 @@ import textrpg.characters.Player;
 public interface Usable {
     
     /**
-     * 
+     * Metodi, jolla tavara käytetään pelaajaan.
      * @param user Pelaaja, johon tavara käytetään.
      * @return Viesti, joka kuvaa tavaran käyttämistä.
      */

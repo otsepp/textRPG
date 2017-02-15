@@ -16,6 +16,9 @@ public class GameUIManager {
     
     private JLayeredPane layeredPane;
     
+    /**
+     * Luo uuden olion. Luo JFrame-olion ja menu-ja peliruutuja kuvaat oliot, jotka periytyvät luokasta JPanel.
+     */
     public GameUIManager() {
         this.frame = createFrame();
         this.menuScreen = new MenuScreen(this);
