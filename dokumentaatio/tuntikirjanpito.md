@@ -6,3 +6,5 @@ Päivä | Tunnit | Kuvaus
 2.2.2017 | 8h | rakenteen suunnittelua (paljon aikaa), perustapahtumat, taistelusysteemin alkumuoto, testejä
 7.2.2017 | 7h | lisätty mahdollisuus käyttää tavaroita pelaajan repusta taistelun aikana, rakennemuutoksia , testejä
 8.2.2017 | 1h | päivitys Inventory-luokkaan (list -> map). Tällä viikolla en saanut paljon aikaiseksi, sillä olen ollut koko viikon hyvin kipeänä.
+14.2.2017 | 5h | Käyttöliittymä alkuun
+15.2.2017| 12h | Käyttöliittymä loppuun, Game-luokka, testejä, dokumentaatio
