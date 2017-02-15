@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import textrpg.GameInterpreter;
+import textrpg.GameInterpreter.GameStatus;
 import textrpg.command.Command;
 import textrpg.event.GameEvent;
 
@@ -41,6 +42,11 @@ public class GameScreen extends JPanel {
     
     
     public void returnToMenu() {
+        GameEvent event = this.gameInterpreter.getCurrentEvent();
+        
+        this.updateEventImage(event.getEventImage());
+        this.updateMessagesArea(this.gameInterpreter.getLatestMessages());
+        this.updateCommandsArea(event.getCommands());
         this.uiManager.switchToMenuScreen();
     }
     
@@ -70,20 +76,8 @@ public class GameScreen extends JPanel {
             this.commandsArea.add(cmdButton);
         }
         this.commandsArea.revalidate();
-        this.messagesArea.repaint();
+        this.commandsArea.repaint();
     }
-    
-     private void setUpComponents() {
-         this.eventImage.setAlignmentX(CENTER_ALIGNMENT);
-         this.messagesArea.setAlignmentX(CENTER_ALIGNMENT);
-         
-         this.add(Box.createRigidArea(new Dimension(0, 50)));
-         this.add(this.eventImage);
-         this.add(Box.createRigidArea(new Dimension(0, 50)));
-         this.add(this.messagesArea);
-         this.add(Box.createRigidArea(new Dimension(0, 50)));
-         this.add(this.commandsArea);
-     }
      
       private JLabel createEventImageLabel() {
         JLabel label = new JLabel();
@@ -125,35 +119,18 @@ public class GameScreen extends JPanel {
         
         return area;
     }
-     
     
-    //siirrä omaan tiedostoon
-    public class CommandButtonListener implements ActionListener {
-        private GameInterpreter gameInterpreter;
-        private GameScreen gameScreen;
-        private int commandId;
-        
-        public CommandButtonListener(GameInterpreter gameInterpreter, GameScreen gameScreen, int commandId) {
-            this.gameInterpreter  = gameInterpreter;
-            this.gameScreen = gameScreen;
-            this.commandId = commandId;
-        }
-        
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        boolean result = this.gameInterpreter.executeCommand(commandId);
-        if (result == false) {
-            this.gameScreen.returnToMenu();
-        }
-        GameEvent event = this.gameInterpreter.getCurrentEvent();
-        
-        this.gameScreen.updateEventImage(event.getEventImage());
-        this.gameScreen.updateMessagesArea(this.gameInterpreter.getLatestMessages());
-        this.gameScreen.updateCommandsArea(event.getCommands());
-    }
-    
-}
-    
+     private void setUpComponents() {
+         this.eventImage.setAlignmentX(CENTER_ALIGNMENT);
+         this.messagesArea.setAlignmentX(CENTER_ALIGNMENT);
+         
+         this.add(Box.createRigidArea(new Dimension(0, 50)));
+         this.add(this.eventImage);
+         this.add(Box.createRigidArea(new Dimension(0, 50)));
+         this.add(this.messagesArea);
+         this.add(Box.createRigidArea(new Dimension(0, 50)));
+         this.add(this.commandsArea);
+     }
     
 }
 

@@ -3,11 +3,11 @@
 package textrpg.event.battle;
 
 import java.util.ArrayList;
-import java.util.List;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
+import textrpg.command.Continue;
 
 /**
  * Komento, jolla pelaaja iskee vihollista.
@@ -33,7 +33,6 @@ public class Attack extends Command {
      */
     @Override
     public CommandReturnValues executeCommand() {
-        this.battle.setPlayerTurn(false);
         super.messages.clear();
 
         int damage = this.player.getTotalDamage();
@@ -44,10 +43,15 @@ public class Attack extends Command {
         super.messages.add(this.enemy.getName() + " has " + remainingEnemyHealth + " health remaining.");
         
         if (remainingEnemyHealth > 0) {
-            
+            this.battle.setPlayerTurn(false);
             return new CommandReturnValues(super.messages, super.newCommands);
+            
         } else {
-            return new CommandReturnValues(super.messages, null);
+            this.battle.setPlayerTurn(true);
+            messages.add(this.enemy.getName() + " is dead.");
+            super.newCommands.clear();
+            super.newCommands.add(new Continue());
+            return new CommandReturnValues(super.messages, super.newCommands);
         }
     }
     

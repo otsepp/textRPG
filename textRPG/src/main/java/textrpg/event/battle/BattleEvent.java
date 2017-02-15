@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
-import textrpg.command.Command;
+import textrpg.command.Continue;
 import textrpg.event.GameEvent;
 import textrpg.event.GameEventReturnValues;
 
@@ -65,9 +65,7 @@ public class BattleEvent extends GameEvent {
         
         if (super.commands != null && !this.playerTurn) {
             attackPlayer(returnValues);
-        } else if (super.commands == null) {
-            messages.add(this.enemy.getName() + " is dead. You continue your way.");
-        }
+        } 
         return returnValues;
     }
     
@@ -79,16 +77,17 @@ public class BattleEvent extends GameEvent {
     private void attackPlayer(GameEventReturnValues returnValues) {
         List<String> messages = returnValues.getMessages();
 
-        int damage = this.enemy.getBaseDamage();
+        int damage = this.enemy.getBaseDamage() + 50;
         this.player.takeDamage(damage);
         messages.add(this.enemy.getName() + " attacks " + this.player.getName() + " for " + damage + " damage.");
         
-        if (this.player.getHealth() > 0) {
+        if (!this.player.isDead()) {
             messages.add(this.player.getName() + " has " + this.player.getHealth() + " health remaining");
         } else {
             messages.add(this.player.getName() + " has died.");
-            super.commands = null;
-            returnValues.setEventContinues(false);
+            
+            super.commands.clear();
+            super.commands.add(new Continue());
         }
     }
    
