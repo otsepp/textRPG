@@ -55,8 +55,7 @@ public abstract class GameEvent {
         CommandReturnValues returnValues = command.executeCommand();
         this.commands = returnValues.getNewCommands();
         
-        List<String> returnMessages = new ArrayList();
-        returnMessages.addAll(returnValues.getMessages());
+        List<String> returnMessages = returnValues.getMessages();
         
         boolean eventContinues = true;
         if (this.commands == null) {

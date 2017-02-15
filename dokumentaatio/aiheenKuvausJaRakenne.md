@@ -8,8 +8,11 @@ Yhteenoton kautta pelaaja joutuu taisteluun vihollisen kanssa. Taistelut ovat vu
 vuorollaan pelaaja valitsee taistelukomennon.
 Pelaajalla on kokoelma tavaroita, joita h‰n voi k‰ytt‰‰. 
 
-**Alkuvaiheen luokkakaavio**	
+**Luokkakaavio**	
 ![Luokkakaavio](luokkakaavio.png)
 
+**Sekvenssikaavio 1**
+![sekvenssikaavio1](sekv1.png)
 
-
+**Sekvenssikaavio 2**
+![sekvenssikaavio1](sekv2.png)
