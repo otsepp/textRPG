@@ -22,9 +22,7 @@ public class GameUIManager {
     
     
     public void createAndShowGUI() {
-//        this.frame.getContentPane().add(this.menuScreen);
-        this.frame.getContentPane().add(this.gameScreen);
-
+        this.frame.getContentPane().add(this.menuScreen);
 
         this.frame.pack();
         this.frame.setLocationRelativeTo(null);

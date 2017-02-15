@@ -4,6 +4,7 @@ package textrpg;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import textrpg.Game.GameStatus;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.Command;
@@ -14,13 +15,14 @@ import textrpg.event.GameEventReturnValues;
 import textrpg.event.straightpath.StraightPathEvent;
 
 /**
-*Tekstipohjainen versio pelistä (UI tulossa).
+*Tekstipohjainen versio pelistä (Ei käytössä enää).
 */
 public class GameText {
     
     private Player player;
     private List<GameEvent> events;
     private Scanner s;
+    
     
     public GameText() {
         player = new Player("Player");
@@ -31,6 +33,7 @@ public class GameText {
     /**
      * Metodi, jolla peli aloitetaan. Iteroi luodut pelitapahtumat ja lopettaa pelin, jos joku tapahtuma tappaa pelaajan.
     */
+    
     public void start() {
         System.out.println("Welcome...\n");
         createEvents();
@@ -45,7 +48,6 @@ public class GameText {
             }
         }
     }
-    
     /**
     * Käsittelee pelitapahtuman. Esittää pelaajalle komennot. Palauttaa true, jos komennon suorittamisen
     * jälkeen pelaaja ei ole kuollut.
@@ -73,6 +75,8 @@ public class GameText {
             return false;
         }
     }
+    
+    
     
     /**
      * Lukee pelaajan valitseman komennon, ja suorittaa sen.

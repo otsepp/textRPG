@@ -2,8 +2,6 @@
 package textrpg.ui;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -11,13 +9,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import textrpg.GameInterpreter;
-import textrpg.GameInterpreter.GameStatus;
+import textrpg.Game;
 import textrpg.command.Command;
 import textrpg.event.GameEvent;
 
 public class GameScreen extends JPanel {
-    private GameInterpreter gameInterpreter;
+    private Game game;
 
     private GameUIManager uiManager;
     
@@ -29,7 +26,7 @@ public class GameScreen extends JPanel {
         this.setOpaque(false);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
-        this.gameInterpreter = new GameInterpreter();
+        this.game = new Game();
         
         this.uiManager = uiManager;
         
@@ -42,16 +39,16 @@ public class GameScreen extends JPanel {
     
     
     public void returnToMenu() {
-        GameEvent event = this.gameInterpreter.getCurrentEvent();
+        GameEvent event = this.game.getCurrentEvent();
         
         this.updateEventImage(event.getEventImage());
-        this.updateMessagesArea(this.gameInterpreter.getLatestMessages());
+        this.updateMessagesArea(this.game.getLatestMessages());
         this.updateCommandsArea(event.getCommands());
         this.uiManager.switchToMenuScreen();
     }
     
     public void updateEventImage(ImageIcon newIcon) {
-        this.eventImage.setIcon(this.gameInterpreter.getCurrentEvent().getEventImage());
+        this.eventImage.setIcon(this.game.getCurrentEvent().getEventImage());
     }
     
     public void updateMessagesArea(List<String> newMessages) {
@@ -72,7 +69,7 @@ public class GameScreen extends JPanel {
             Command cmd = commands.get(i);
             
             JButton cmdButton = new JButton(cmd.getDescription());
-            cmdButton.addActionListener(new CommandButtonListener(this.gameInterpreter, this, i));
+            cmdButton.addActionListener(new CommandButtonListener(this.game, this, i));
             this.commandsArea.add(cmdButton);
         }
         this.commandsArea.revalidate();
@@ -82,7 +79,7 @@ public class GameScreen extends JPanel {
       private JLabel createEventImageLabel() {
         JLabel label = new JLabel();
         
-        ImageIcon icon = new ImageIcon(GameScreen.class.getResource("/event_images/test_image.png"));
+        ImageIcon icon = this.game.getCurrentEvent().getEventImage();
         label.setIcon(icon);
         
         return label;
@@ -93,7 +90,7 @@ public class GameScreen extends JPanel {
         area.setOpaque(false);
         area.setLayout(new BoxLayout(area, BoxLayout.Y_AXIS));
 
-        List<String> initialMessages = this.gameInterpreter.getLatestMessages();
+        List<String> initialMessages = this.game.getLatestMessages();
         
         for (String msg : initialMessages) {
             JLabel msgLabel = new JLabel(msg);
@@ -107,13 +104,13 @@ public class GameScreen extends JPanel {
         JPanel area = new JPanel();
         area.setOpaque(false);
         
-        List<Command> commands = this.gameInterpreter.getCurrentEvent().getCommands();
+        List<Command> commands = this.game.getCurrentEvent().getCommands();
         
         for (int i = 0; i < commands.size(); i++) {
             Command c = commands.get(i);
 
             JButton cmdButton = new JButton(c.getDescription());
-            cmdButton.addActionListener(new CommandButtonListener(this.gameInterpreter, this, i));
+            cmdButton.addActionListener(new CommandButtonListener(this.game, this, i));
             area.add(cmdButton);
         }
         

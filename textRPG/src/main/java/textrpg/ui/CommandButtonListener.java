@@ -3,29 +3,29 @@ package textrpg.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import textrpg.GameInterpreter;
-import textrpg.GameInterpreter.GameStatus;
+import textrpg.Game;
+import textrpg.Game.GameStatus;
 import textrpg.event.GameEvent;
 
 public class CommandButtonListener  implements ActionListener {
-        private GameInterpreter gameInterpreter;
+        private Game game;
         private GameScreen gameScreen;
         private int commandId;
         
-        public CommandButtonListener(GameInterpreter gameInterpreter, GameScreen gameScreen, int commandId) {
-            this.gameInterpreter  = gameInterpreter;
+        public CommandButtonListener(Game game, GameScreen gameScreen, int commandId) {
+            this.game  = game;
             this.gameScreen = gameScreen;
             this.commandId = commandId;
         }
         
     @Override
     public void actionPerformed(ActionEvent e) {
-        GameStatus result = this.gameInterpreter.executeCommand(commandId);
+        GameStatus result = this.game.executeCommand(commandId);
         
-        GameEvent event = this.gameInterpreter.getCurrentEvent();
+        GameEvent event = this.game.getCurrentEvent();
         
         this.gameScreen.updateEventImage(event.getEventImage());
-        this.gameScreen.updateMessagesArea(this.gameInterpreter.getLatestMessages());
+        this.gameScreen.updateMessagesArea(this.game.getLatestMessages());
         this.gameScreen.updateCommandsArea(event.getCommands());       
         
         if (result == GameStatus.GAME_END)  {

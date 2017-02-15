@@ -20,13 +20,4 @@ public class Main {
             }
         });
     }
-    
-     /**
-     * Aloittaa tekstipohjaisen version pelistä.
-     */
-    public static void startTextGame() {
-        GameText game = new GameText();
-        game.start();
-    }
-    
 }

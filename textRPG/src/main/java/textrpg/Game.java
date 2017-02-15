@@ -4,6 +4,7 @@ package textrpg;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.event.GameEvent;
@@ -12,15 +13,14 @@ import textrpg.event.battle.BattleEvent;
 import textrpg.event.ending.EndingEvent;
 import textrpg.event.straightpath.StraightPathEvent;
 
-//RENAME
-public class GameInterpreter {
+public class Game {
     private Player player;
     private ArrayDeque<GameEvent> events;
     private GameEvent currentEvent;
     private List<String> latestMessages;
     
     
-    public GameInterpreter() {
+    public Game() {
         this.latestMessages = new ArrayList();
         setDefaultState();
     }
@@ -36,6 +36,10 @@ public class GameInterpreter {
     
     public GameStatus executeCommand(int commandId) {
         GameEventReturnValues ret = this.currentEvent.initiateEvent(commandId);
+        
+        if (ret == null) {
+            return null;
+        }
         
         if (this.player.isDead()) {
             this.events.clear();
@@ -85,7 +89,13 @@ public class GameInterpreter {
         ArrayDeque<GameEvent> events = new ArrayDeque();
         
         events.addLast(new StraightPathEvent());
-        events.addLast(new BattleEvent(this.player, new Enemy("Bandit")));
+        
+        Enemy bandit = new Enemy("Bandit");
+        ImageIcon banditImage = new ImageIcon(Game.class.getResource("/event_images/bandit.png"));
+        ImageIcon banditDeathImage = new ImageIcon(Game.class.getResource("/event_images/enemy_dead.png"));
+        bandit.setImages(banditImage, banditDeathImage);
+        events.addLast(new BattleEvent(this.player, bandit));
+        
         events.addLast(new EndingEvent());
         
         return events;

@@ -11,22 +11,13 @@ import textrpg.command.CommandReturnValues;
  * Pelitapahtuma.
  */
 public abstract class GameEvent {
-    /**
-     * Tapahtuman alussa näyettävä viesti.
-     */
     protected String startMessage;
-    /**
-     * Tapahtumaan liittyvät komennot.
-     */
     protected List<Command> commands;
-    
     private ImageIcon eventImage;
     
     public GameEvent(String startMessage, List<Command> commands) {
         this.startMessage = startMessage;
         this.commands = commands;
-        
-        this.eventImage =  new ImageIcon(GameEvent.class.getResource("/event_images/test_image.png"));
     }
     
     public String getStartMessage() {
@@ -39,6 +30,10 @@ public abstract class GameEvent {
     
     public ImageIcon getEventImage() {
         return this.eventImage;
+    }
+    
+    public void setEventImage(ImageIcon image) {
+        this.eventImage = image;
     }
     
     /**

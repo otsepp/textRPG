@@ -2,6 +2,8 @@
 package textrpg.event.ending;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import textrpg.Game;
 import textrpg.event.GameEvent;
 
 /**
@@ -13,6 +15,7 @@ public class EndingEvent extends GameEvent {
         super("You have reached the end of the game!",
                 new ArrayList());
         setDefaultCommands();
+        super.setEventImage( new ImageIcon(EndingEvent.class.getResource("/event_images/ending.png")));
     }
     
     @Override

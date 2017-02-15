@@ -22,9 +22,11 @@ public class BattleEvent extends GameEvent {
         super("", new ArrayList());
         this.player = player;
         this.enemy = enemy;
-        super.startMessage = "You find yourself facing a " + enemy.getName();
+        super.startMessage = "You find yourself facing a " + enemy.getName() + ".";
         this.playerTurn = true;
         setDefaultCommands();
+        
+        super.setEventImage(this.enemy.getImage());
     }
 
     
@@ -51,8 +53,6 @@ public class BattleEvent extends GameEvent {
      * @param commandId pelaajan valitseman komennon indeksi.
      * @return GameEventReturnValues-olio sisältää viestit ja totuusarvon joka ilmaisee, että jatkuuko tapahtuma.
      */
-    
-    //TÄYTYY KORJATA
     @Override
     public GameEventReturnValues initiateEvent(int commandId) {
         GameEventReturnValues returnValues = super.initiateEvent(commandId);
@@ -71,18 +71,18 @@ public class BattleEvent extends GameEvent {
     
     /**
      * Suoritetaan pelaajan vuoron päättyessä. Muokkaa tapahtumaan liittyvää palautusoliota sen perusteella,
-     * että kuoleeke pelaaja iskusta vai ei.
+     * että kuoleeko pelaaja iskusta vai ei.
      * @param returnValues Tapahtuman palatusarvo-olio
      */
     private void attackPlayer(GameEventReturnValues returnValues) {
         List<String> messages = returnValues.getMessages();
 
-        int damage = this.enemy.getBaseDamage() + 50;
+        int damage = this.enemy.getBaseDamage();
         this.player.takeDamage(damage);
         messages.add(this.enemy.getName() + " attacks " + this.player.getName() + " for " + damage + " damage.");
         
         if (!this.player.isDead()) {
-            messages.add(this.player.getName() + " has " + this.player.getHealth() + " health remaining");
+            messages.add(this.player.getName() + " has " + this.player.getHealth() + " health remaining.");
         } else {
             messages.add(this.player.getName() + " has died.");
             

@@ -3,6 +3,8 @@
 package textrpg.event.battle;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import textrpg.Game;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.Command;
@@ -42,11 +44,13 @@ public class Attack extends Command {
         super.messages.add(this.player.getName() + " attacks " + this.enemy.getName() + " for " + damage + " damage.");
         super.messages.add(this.enemy.getName() + " has " + remainingEnemyHealth + " health remaining.");
         
-        if (remainingEnemyHealth > 0) {
+        if (remainingEnemyHealth > 0) {            
             this.battle.setPlayerTurn(false);
             return new CommandReturnValues(super.messages, super.newCommands);
             
         } else {
+            this.battle.setEventImage(this.enemy.getDeathImage());
+            
             this.battle.setPlayerTurn(true);
             messages.add(this.enemy.getName() + " is dead.");
             super.newCommands.clear();
