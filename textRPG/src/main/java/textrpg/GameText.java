@@ -4,7 +4,6 @@ package textrpg;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import textrpg.Game.GameStatus;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.Command;
@@ -15,7 +14,7 @@ import textrpg.event.GameEventReturnValues;
 import textrpg.event.straightpath.StraightPathEvent;
 
 /**
-*Tekstipohjainen versio pelistä (Ei käytössä enää).
+*Tekstipohjainen versio pelistä (Ei enää käytössä!).
 */
 public class GameText {
     

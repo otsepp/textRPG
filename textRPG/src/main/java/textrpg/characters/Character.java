@@ -70,7 +70,10 @@ public abstract class Character {
     public void addHealth(int healthToAdd) {
         if (this.health + healthToAdd > this.maxHealth) {
             this.health = maxHealth;
+        } else {
+            this.health += healthToAdd;
         }
+
     }
     
 }

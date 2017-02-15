@@ -3,19 +3,15 @@ package textrpg.ui;
 
 import java.awt.Dimension;
 import java.util.List;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import textrpg.Game;
 import textrpg.command.Command;
-import textrpg.event.GameEvent;
 
+/**
+ * Näyttää pelin.
+ */
 public class GameScreen extends JPanel {
     private Game game;
-
     private GameUIManager uiManager;
     
     private JLabel eventImage;
@@ -27,7 +23,6 @@ public class GameScreen extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
         this.game = new Game();
-        
         this.uiManager = uiManager;
         
         this.eventImage = createEventImageLabel();
@@ -38,19 +33,25 @@ public class GameScreen extends JPanel {
     }
     
     
+    /**
+     * Vaihtaa menuruutuun.
+     */
     public void returnToMenu() {
-        GameEvent event = this.game.getCurrentEvent();
-        
-        this.updateEventImage(event.getEventImage());
-        this.updateMessagesArea(this.game.getLatestMessages());
-        this.updateCommandsArea(event.getCommands());
         this.uiManager.switchToMenuScreen();
     }
     
+    /**
+     * Päivittää tapahtuman kuvan.
+     * @param newIcon Uusi kuva.
+     */
     public void updateEventImage(ImageIcon newIcon) {
         this.eventImage.setIcon(this.game.getCurrentEvent().getEventImage());
     }
     
+    /**
+     * Päivittää näytettävät viestit.
+     * @param newMessages Uudet viestit. 
+     */
     public void updateMessagesArea(List<String> newMessages) {
         this.messagesArea.removeAll();
         
@@ -62,6 +63,10 @@ public class GameScreen extends JPanel {
         this.messagesArea.repaint();
     }
     
+    /**
+     * Päivittää näytettävät komennot.
+     * @param commands Uudet komennot.
+     */
     public void updateCommandsArea(List<Command> commands) {
         this.commandsArea.removeAll();
         

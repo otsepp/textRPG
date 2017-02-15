@@ -10,6 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Näyttää aloitusruudun.
+ */
 public class MenuScreen extends JPanel {
     private GameUIManager uiManager;
     

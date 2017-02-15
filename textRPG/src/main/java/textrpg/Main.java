@@ -16,7 +16,7 @@ public class Main {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 GameUIManager game = new GameUIManager();
-                game.createAndShowGUI();
+                game.start();
             }
         });
     }

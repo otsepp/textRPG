@@ -6,8 +6,10 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
+/**
+ * Hallitsee eri ruutuja (menu ja peli).
+ */
 public class GameUIManager {
-    
     private JFrame frame;
     private MenuScreen menuScreen;
     private GameScreen gameScreen;
@@ -21,12 +23,36 @@ public class GameUIManager {
     }
     
     
-    public void createAndShowGUI() {
+    /**
+     * Aloittaa pelin.
+     */
+    public void start() {
         this.frame.getContentPane().add(this.menuScreen);
-
         this.frame.pack();
         this.frame.setLocationRelativeTo(null);
         this.frame.setVisible(true);
+    }
+    
+    /**
+     * Vaihtaa menuruudusta peliruutuun.
+     */
+    public void switchToGameScreen() {
+        this.menuScreen.setVisible(false);
+        this.frame.getContentPane().remove(this.menuScreen);
+        
+        this.frame.getContentPane().add(this.gameScreen);
+        this.gameScreen.setVisible(true);
+    }
+    
+    /**
+     * Vaihtaa peliruudusta menuruutuun.
+     */
+    public void switchToMenuScreen() {
+        this.gameScreen.setVisible(false);
+        this.frame.getContentPane().remove(this.gameScreen);
+        
+        this.frame.getContentPane().add(this.menuScreen);
+        this.menuScreen.setVisible(true);
     }
     
     private JFrame createFrame() {
@@ -36,23 +62,4 @@ public class GameUIManager {
         frame.getContentPane().setBackground(Color.LIGHT_GRAY);
         return frame;
     }
-    
-    public void switchToGameScreen() {
-        this.menuScreen.setVisible(false);
-        
-        this.gameScreen.setVisible(true);
-        this.frame.getContentPane().add(this.gameScreen);
-        
-        this.frame.getContentPane().remove(this.menuScreen);
-    }
-    
-    public void switchToMenuScreen() {
-        this.gameScreen.setVisible(false);
-        
-        this.menuScreen.setVisible(true);
-        this.frame.getContentPane().add(this.menuScreen);
-        
-        this.frame.getContentPane().remove(this.gameScreen);
-    }
-    
 }

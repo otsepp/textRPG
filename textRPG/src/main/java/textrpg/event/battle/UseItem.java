@@ -28,10 +28,12 @@ public class UseItem extends Command {
     public CommandReturnValues executeCommand() {
         this.battle.setPlayerTurn(false);
         super.messages.clear();
-        
+
         Usable usable = (Usable) this.item;
         super.messages.add(usable.use(this.battle.getPlayer()));
         usable.removeFromInvetory();
+        
+        super.messages.add("Player now has " + this.battle.getPlayer().getHealth() + " health.");
         
         this.battle.setDefaultCommands();
         return new CommandReturnValues(super.messages, battle.getCommands());

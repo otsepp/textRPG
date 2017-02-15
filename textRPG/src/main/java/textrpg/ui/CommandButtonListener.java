@@ -7,6 +7,9 @@ import textrpg.Game;
 import textrpg.Game.GameStatus;
 import textrpg.event.GameEvent;
 
+/**
+ * Kuuntelee komentonappuloita ja tiettyyn nappulaan liittyvän komennon.
+ */
 public class CommandButtonListener  implements ActionListener {
         private Game game;
         private GameScreen gameScreen;
@@ -18,19 +21,20 @@ public class CommandButtonListener  implements ActionListener {
             this.commandId = commandId;
         }
         
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        GameStatus result = this.game.executeCommand(commandId);
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            GameStatus result = this.game.executeCommand(commandId);
+            
+            GameEvent event = this.game.getCurrentEvent();
         
-        GameEvent event = this.game.getCurrentEvent();
+            this.gameScreen.updateEventImage(event.getEventImage());
+            this.gameScreen.updateMessagesArea(this.game.getLatestMessages());
+            this.gameScreen.updateCommandsArea(event.getCommands());       
+
+            if (result == GameStatus.GAME_END)  {
+                this.gameScreen.returnToMenu();
+            }
+        }  
         
-        this.gameScreen.updateEventImage(event.getEventImage());
-        this.gameScreen.updateMessagesArea(this.game.getLatestMessages());
-        this.gameScreen.updateCommandsArea(event.getCommands());       
-        
-        if (result == GameStatus.GAME_END)  {
-            this.gameScreen.returnToMenu();
-        }
-    }
-    
 }

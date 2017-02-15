@@ -14,7 +14,7 @@ public class HealthPotion extends Item implements Usable {
         super("Health Potion");
         this.inventory = inventory;
     }
-    
+
     
     @Override
     public String use(Player user) {
@@ -26,8 +26,4 @@ public class HealthPotion extends Item implements Usable {
     public void removeFromInvetory() {
         this.inventory.removeUsableItem(this);
     }
-   
-    
-    
-    
 }

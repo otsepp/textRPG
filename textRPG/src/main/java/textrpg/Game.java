@@ -13,12 +13,14 @@ import textrpg.event.battle.BattleEvent;
 import textrpg.event.ending.EndingEvent;
 import textrpg.event.straightpath.StraightPathEvent;
 
+/**
+ * Käsittelee pelin tapahtumia.
+ */
 public class Game {
     private Player player;
     private ArrayDeque<GameEvent> events;
     private GameEvent currentEvent;
     private List<String> latestMessages;
-    
     
     public Game() {
         this.latestMessages = new ArrayList();
@@ -34,42 +36,49 @@ public class Game {
         return this.latestMessages;
     }
     
+    /**
+     * Suorittaa tämän hetken tapahtumaan liittyvän komennon.
+     * @param commandId Komennon indeksi komentolistalla.
+     * @return Palauttaa null, jos commandId ei vastaa mitään komentoa. Jos peli jatkuu, palautetaan 
+     * GameStatus.GAME_END, muuten palautetaan GameStatus.GAME_CONTINUE.
+     */
     public GameStatus executeCommand(int commandId) {
-        GameEventReturnValues ret = this.currentEvent.initiateEvent(commandId);
+        GameEventReturnValues returnValues = this.currentEvent.initiateEvent(commandId);
         
-        if (ret == null) {
+        if (returnValues == null) {
             return null;
         }
-        
         if (this.player.isDead()) {
             this.events.clear();
         }
-        if (!ret.getEventContinues()) {
+        if (!returnValues.getEventContinues()) {
             return setUpNextEvent();
         }
-        this.latestMessages = ret.getMessages();
+        this.latestMessages = returnValues.getMessages();
         return GameStatus.GAME_CONTINUE;
     }
     
+    /**
+     * Vaihtaa seuraavaan tapahtumaan. 
+     * @return GameStatus-arvo, joka ilmaisee, että jatkuuko peli vai päättyykö se.
+     */
     private GameStatus setUpNextEvent() {
-        if (this.events.isEmpty()) {
+        if (this.events.size() <= 1) {
             setDefaultState();
             return GameStatus.GAME_END;
         }
         this.events.removeFirst();
         this.currentEvent = getNextEvent();
         
-        if (this.currentEvent == null) {
-            setDefaultState();
-            return GameStatus.GAME_END;
-        
-        } else {
-            this.latestMessages.clear();
-            this.latestMessages.add(this.currentEvent.getStartMessage());
-            return GameStatus.GAME_CONTINUE;
-        }
+         this.latestMessages.clear();
+         this.latestMessages.add(this.currentEvent.getStartMessage());
+         return GameStatus.GAME_CONTINUE;
     }
     
+    /**
+     * Hakee jonosta seuraavan tapahtuman.
+     * @return Seuraava tapahtuma. Jos sellaista ei ole, palauttaa null.
+     */
     private GameEvent getNextEvent() {
         if (this.events.peek() != null) {
             return this.events.getFirst();
@@ -77,6 +86,9 @@ public class Game {
         return null;
     }
     
+    /**
+     * Asettaa pelin alkutilaan.
+     */
     private void setDefaultState() {
         this.player = new Player("Player");
         this.events = getDefaultEvents();
@@ -85,6 +97,10 @@ public class Game {
         this.latestMessages.add(this.currentEvent.getStartMessage());
     }
     
+    /**
+     * Määrittää peliin liittyvät tapahtumat.
+     * @return ArrayDeque-jono pelin tapahtumista.
+     */
     private ArrayDeque<GameEvent> getDefaultEvents() {
         ArrayDeque<GameEvent> events = new ArrayDeque();
         
