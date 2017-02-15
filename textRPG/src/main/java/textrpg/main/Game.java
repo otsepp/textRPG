@@ -1,9 +1,7 @@
 
-package textrpg;
+package textrpg.main;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import javax.swing.ImageIcon;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
@@ -28,6 +26,14 @@ public class Game {
     }
 
     
+    public Player getPlayer() {
+        return this.player;
+    }
+    
+    public ArrayDeque<GameEvent> getEvents() {
+        return this.events;
+    }
+    
     public GameEvent getCurrentEvent() {
         return this.currentEvent;
     }
@@ -35,6 +41,7 @@ public class Game {
     public List<String> getLatestMessages() {
         return this.latestMessages;
     }
+    
     
     /**
      * Suorittaa tämän hetken tapahtumaan liittyvän komennon.
@@ -116,10 +123,6 @@ public class Game {
         
         return events;
     }
-    
-    
-    public enum GameStatus {
-        GAME_CONTINUE, GAME_END;
-    }
+
 }
 

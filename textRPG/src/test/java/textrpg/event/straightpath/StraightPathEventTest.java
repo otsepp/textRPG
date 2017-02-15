@@ -1,12 +1,12 @@
 
 package textrpg.event.straightpath;
 
-import textrpg.event.straightpath.StraightPathEvent;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import textrpg.command.Command;
+import textrpg.command.Continue;
 import textrpg.event.GameEventReturnValues;
 
 
@@ -40,7 +40,10 @@ public class StraightPathEventTest {
     public void initiateEventWorks() {
         GameEventReturnValues ret = this.event.initiateEvent(0);
 
-        assertEquals(false, ret.getEventContinues());
+        assertEquals(true, ret.getEventContinues());
+        
+        Command newCommand = this.event.getCommands().get(0);
+        assertEquals(true, newCommand instanceof Continue);
         
         List<String> messages = ret.getMessages();
         assertEquals(1, messages.size());

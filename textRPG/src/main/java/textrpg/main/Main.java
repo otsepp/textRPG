@@ -1,5 +1,5 @@
 
-package textrpg;
+package textrpg.main;
 
 import textrpg.ui.GameUIManager;
 

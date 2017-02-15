@@ -3,7 +3,7 @@ package textrpg.event.ending;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
-import textrpg.Game;
+import textrpg.main.Game;
 import textrpg.event.GameEvent;
 
 /**

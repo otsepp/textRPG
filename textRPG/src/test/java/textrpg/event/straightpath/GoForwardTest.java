@@ -1,11 +1,13 @@
 
 package textrpg.event.straightpath;
 
-import textrpg.event.straightpath.GoForward;
 import static org.junit.Assert.assertEquals;
+import textrpg.event.straightpath.GoForward;
 import org.junit.Before;
 import org.junit.Test;
+import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
+import textrpg.command.Continue;
 
 
 public class GoForwardTest {
@@ -22,15 +24,20 @@ public class GoForwardTest {
     
      @Test
     public void constructorWorks() {
-        assertEquals(null, this.goForward.getNewCommands());
-        assertEquals(true, this.goForward.getMessages().isEmpty());
         assertEquals(true, this.goForward.getDescription() != null);
+        assertEquals(true, this.goForward.getMessages().isEmpty());
+        assertEquals(true, this.goForward.getNewCommands().isEmpty());
     }
     
     @Test
     public void executeCommandWorks() {
         CommandReturnValues returnValues = this.goForward.executeCommand();
-        assertEquals(null, returnValues.getNewCommands());
+      
+        assertEquals(true, returnValues.getNewCommands() != null);
+        
+        Command newCommand = this.goForward.getNewCommands().get(0);
+        assertEquals(true, newCommand instanceof Continue);
+        
     }
     
 }

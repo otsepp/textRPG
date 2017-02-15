@@ -1,13 +1,13 @@
 
 package textrpg.event.ending;
 
-import textrpg.event.ending.EndingEvent;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import textrpg.command.Command;
 import textrpg.event.GameEventReturnValues;
 import static org.junit.Assert.assertEquals;
+import textrpg.command.Continue;
 
 public class EndingEventTest {
     
@@ -39,8 +39,11 @@ public class EndingEventTest {
     @Test
     public void initiateEventWorks() {
         GameEventReturnValues ret = this.endEvent.initiateEvent(0);
-
-        assertEquals(false, ret.getEventContinues());
+        
+        assertEquals(true, ret.getEventContinues());
+        
+        Command newCommand = this.endEvent.getCommands().get(0);
+        assertEquals(true, newCommand instanceof Continue);
         
         List<String> messages = ret.getMessages();
         assertEquals(1, messages.size());

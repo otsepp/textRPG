@@ -3,8 +3,6 @@
 package textrpg.event.battle;
 
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import textrpg.Game;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.Command;

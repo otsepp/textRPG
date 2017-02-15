@@ -1,11 +1,12 @@
 
 package textrpg.event.ending;
 
-import textrpg.event.ending.Quit;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
+import textrpg.command.Continue;
 
 public class QuitTest {
     
@@ -21,15 +22,20 @@ public class QuitTest {
     
     @Test
     public void constructorWorks() {
-        assertEquals(null, this.quit.getNewCommands());
-        assertEquals(true, this.quit.getMessages().isEmpty());
         assertEquals(true, this.quit.getDescription() != null);
+        assertEquals(true, this.quit.getMessages().isEmpty());
+        assertEquals(true, this.quit.getNewCommands().isEmpty());
     }
     
     @Test
     public void executeCommandWorks() {
         CommandReturnValues returnValues = this.quit.executeCommand();
-        assertEquals(null, returnValues.getNewCommands());
+        
+        assertEquals(true, returnValues.getNewCommands() != null);
+
+        
+        Command newCommand = this.quit.getNewCommands().get(0);
+        assertEquals(true, newCommand instanceof Continue);
     }
     
 }

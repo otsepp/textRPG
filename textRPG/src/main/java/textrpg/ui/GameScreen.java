@@ -4,7 +4,7 @@ package textrpg.ui;
 import java.awt.Dimension;
 import java.util.List;
 import javax.swing.*;
-import textrpg.Game;
+import textrpg.main.Game;
 import textrpg.command.Command;
 
 /**

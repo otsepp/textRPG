@@ -3,9 +3,9 @@ package textrpg.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import textrpg.Game;
-import textrpg.Game.GameStatus;
+import textrpg.main.Game;
 import textrpg.event.GameEvent;
+import textrpg.main.GameStatus;
 
 /**
  * Kuuntelee komentonappuloita ja tiettyyn nappulaan liittyvän komennon.

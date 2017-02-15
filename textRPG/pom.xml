@@ -64,6 +64,7 @@
                     <param>textrpg.event.ending.*</param>
                     <param>textrpg.event.straightpath.*</param>
                     <param>textrpg.items.Inventory</param>
+                    <param>textrpg.main.Game</param>
                 </targetClasses>
                 
                 <targetTests>
@@ -72,6 +73,7 @@
                     <param>textrpg.event.ending.*</param>
                     <param>textrpg.event.straightpath.*</param>
                     <param>textrpg.items.InventoryTest</param>
+                    <param>textrpg.main.GameTest</param>
                 </targetTests>
                 
             </configuration>

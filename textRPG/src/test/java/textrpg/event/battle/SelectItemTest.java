@@ -1,9 +1,6 @@
 
 package textrpg.event.battle;
 
-import textrpg.event.battle.UseItem;
-import textrpg.event.battle.BattleEvent;
-import textrpg.event.battle.SelectItem;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,8 +9,6 @@ import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
-import textrpg.items.HealthPotion;
-import textrpg.items.Usable;
 
 public class SelectItemTest {
     

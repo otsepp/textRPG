@@ -8,9 +8,6 @@ import textrpg.command.Continue;
 
 /**
  * StraightPathEvent-luokkaan liittyvä komento, jonka jälkeen pelaaja liikkuu eteenpäin. 
- * <p>
- * Huom. voidaan ehkä käyttää myöhemmin.
- * </p>
 */
 public class GoForward extends Command {
          

@@ -1,7 +1,6 @@
 
 package textrpg.event.battle;
 
-import textrpg.event.battle.BattleEvent;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +8,7 @@ import static org.junit.Assert.*;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
 import textrpg.command.Command;
+import textrpg.command.Continue;
 import textrpg.event.GameEventReturnValues;
 
 public class BattleEventTest {
@@ -48,28 +48,31 @@ public class BattleEventTest {
     }
     
     @Test
-    public void initiateEventContinuesWhenNeitherDies() {
-        GameEventReturnValues ret = this.event.initiateEvent(0);
+    public void battleContinuesWhenNeitherDies() {
+        this.event.initiateEvent(0);
         
-        assertEquals(true, ret.getEventContinues());
-        assertEquals(true, this.event.getCommands() != null);
+        assertEquals(true, this.event.getCommands().size() > 1);
     }
     
     @Test
-    public void initiateEventEndsWhenEnemyDies() {
+    public void battleEndsWhenEnemyDies() {
         this.event.getEnemy().setHealth(1);
-        GameEventReturnValues ret = this.event.initiateEvent(0);
-        assertEquals(null, this.event.getCommands());
-        assertEquals(false, ret.getEventContinues());
+        
+        this.event.initiateEvent(0);
+        
+        Command newCommand = this.event.getCommands().get(0);
+        assertEquals(true, newCommand instanceof Continue);
     }
     
     @Test
-    public void initiateEventEndsWhenPlayerDies() {
+    public void battleEndsWhenPlayerDies() {
         this.event.getPlayer().setHealth(1);
         this.event.getEnemy().setHealth(1000);
-        GameEventReturnValues ret = this.event.initiateEvent(0);
-        assertEquals(null, this.event.getCommands());
-        assertEquals(false, ret.getEventContinues());
+
+        this.event.initiateEvent(0);
+        
+        Command newCommand = this.event.getCommands().get(0);
+        assertEquals(true, newCommand instanceof Continue);
     }
     
 }
