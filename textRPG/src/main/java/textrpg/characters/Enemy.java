@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 /**
  * Kuvaa vihollishahmoa.
  */
-public class Enemy extends Character {
+public class Enemy extends GameCharacter {
     
     private ImageIcon image;
     private ImageIcon deathImage;

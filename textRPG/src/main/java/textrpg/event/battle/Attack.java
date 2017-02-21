@@ -31,13 +31,13 @@ public class Attack extends Command {
     }
 
     /**
-     * Palauttaa komennon suorittamiseen liittyvät viestit ja uudet komennot. Uudet komennot ovat null-arvoiset,
-     * jos vihollinen kuolee. Muuten ne pysyvät samana kuin ennen komennon suoritusta.
+     * Pelaaja iskee vihollista.
      * @return CommandReturnValues-olio sisältää komentoon liittyvät viestit ja uudet komennot
      */
     @Override
     public CommandReturnValues executeCommand() {
         super.messages.clear();
+        this.battle.setPlayerTurn(false);
 
         int damage = this.player.getTotalDamage();
         this.enemy.takeDamage(damage);
@@ -46,19 +46,7 @@ public class Attack extends Command {
         super.messages.add(this.player.getName() + " attacks " + this.enemy.getName() + " for " + damage + " damage.");
         super.messages.add(this.enemy.getName() + " has " + remainingEnemyHealth + " health remaining.");
         
-        if (remainingEnemyHealth > 0) {            
-            this.battle.setPlayerTurn(false);
-            return new CommandReturnValues(super.messages, super.newCommands);
-            
-        } else {
-            this.battle.setEventImage(this.enemy.getDeathImage());
-            
-            this.battle.setPlayerTurn(true);
-            messages.add(this.enemy.getName() + " is dead.");
-            super.newCommands.clear();
-            super.newCommands.add(new Continue());
-            return new CommandReturnValues(super.messages, super.newCommands);
-        }
+        return new CommandReturnValues(super.messages, super.newCommands);
     }
     
     public BattleEvent getBattleEvent() {

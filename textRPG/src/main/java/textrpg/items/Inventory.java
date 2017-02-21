@@ -22,6 +22,7 @@ public class Inventory {
         this.usableItems = new HashMap();
         addUsableItem(new HealthPotion(this));
         addUsableItem(new HealthPotion(this));
+        addUsableItem(new Bomb(this));
     }
 
     /**

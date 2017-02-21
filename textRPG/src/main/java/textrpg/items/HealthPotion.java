@@ -1,12 +1,12 @@
 
 package textrpg.items;
 
-import textrpg.characters.Player;
+import textrpg.characters.GameCharacter;
 
 /**
  * Elämäpisteitä kasvattava eliksiiri.
  */
-public class HealthPotion extends Item implements Usable {
+public class HealthPotion extends Item implements Usable, UsableOnPlayer {
     private final int healAmount = 40;
     private Inventory inventory;
     
@@ -21,13 +21,13 @@ public class HealthPotion extends Item implements Usable {
 
     
     @Override
-    public String use(Player user) {
-        user.addHealth(healAmount);
-        return user.getName() + " is healed for " + this.healAmount + " health.";
+    public String use(GameCharacter character) {
+        character.addHealth(healAmount);
+        return character.getName() + " is healed for " + this.healAmount + " health.";
     }
     
     @Override
-    public void removeFromInvetory() {
+    public void removeFromInventory() {
         this.inventory.removeUsableItem(this);
     }
 }

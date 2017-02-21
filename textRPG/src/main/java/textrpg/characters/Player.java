@@ -1,9 +1,11 @@
 
 package textrpg.characters;
 
+import textrpg.items.Bomb;
+import textrpg.items.HealthPotion;
 import textrpg.items.Inventory;
 
-public class Player extends Character {
+public class Player extends GameCharacter {
     
     private Inventory inventory;
     private int totalDamage;

@@ -2,7 +2,7 @@
 package textrpg.characters;
 
 
-public abstract class Character {
+public abstract class GameCharacter {
     private String name;
     private int maxHealth;
     private int health;
@@ -12,7 +12,7 @@ public abstract class Character {
      * Oliolle annetaan oletusarvoiset attribuutit.
      * @param name Hahmolle annettava nimi
      */
-    public Character(String name) {
+    public GameCharacter(String name) {
         this.name = name;
         this.maxHealth = 100;
         this.health = this.maxHealth;
@@ -24,7 +24,7 @@ public abstract class Character {
      * @param name  Hahmolle annettava nimi
      * @param maxHealth Hahmon maksimielämäpisteet
      */
-    public Character(String name, int maxHealth) {
+    public GameCharacter(String name, int maxHealth) {
         this.name = name;
         this.maxHealth = maxHealth;
         this.health = this.maxHealth;

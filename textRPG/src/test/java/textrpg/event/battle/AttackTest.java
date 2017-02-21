@@ -32,27 +32,13 @@ public class AttackTest {
     }
     
     @Test
-    public void killingEnemyWorks() {
-        Player player = this.attack.getPlayer();
-        player.setBaseDamage(1000);
-        player.updateDamage();
-        
-        CommandReturnValues returnValues = this.attack.executeCommand();
-        
-        assertEquals(true, this.attack.getBattleEvent().isPlayerTurn());
-        Command newCommand = returnValues.getNewCommands().get(0);
-        assertEquals(true, newCommand instanceof Continue);
-        
-    }
-    
-    @Test
-    public void damagingEnemyWorks() {
+    public void commandWorks() {
         Enemy enemy = this.attack.getEnemy();
-        enemy.setHealth(1000);
-        
-        CommandReturnValues returnValues = this.attack.executeCommand();
+        int healthComparison = enemy.getHealth() - this.attack.getPlayer().getTotalDamage();
+        this.attack.executeCommand();
+      
+        assertEquals(healthComparison, enemy.getHealth());
         assertEquals(false, this.attack.getBattleEvent().isPlayerTurn());
-        assertEquals(true, returnValues.getNewCommands().size() > 1);
     }
     
 }

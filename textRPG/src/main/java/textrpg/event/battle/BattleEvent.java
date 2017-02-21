@@ -53,8 +53,9 @@ public class BattleEvent extends GameEvent {
     }
     
     /**
-     * Suorittaa pelaajan valitseman komennon indeksin perusteella. Kutsuu ensin yliluokan metodia, jonka palatusarvojen perusteella
-     * määritetään, että isketäänkö pelaajaa tai onko vihollinen kuollut.
+     * Suorittaa pelaajan valitseman komennon indeksin perusteella. Ensin komento suoritetaan yliluokan metodilla. Jos suoritettu komento
+     * ei lopeta tapahtumaa, eli komennot eivät ole null, komentoa käsitellään lisää: pelaajaa isketään, jos vihollinen ei ole kuollut ja pelivuoro ei ole pelaajalla. Jos komento tappoi vihollisen,
+     * tapahtuma lopetetaan.
      * @param commandId pelaajan valitseman komennon indeksi.
      * @return GameEventReturnValues-olio sisältää viestit ja totuusarvon joka ilmaisee, että jatkuuko tapahtuma.
      */
@@ -65,17 +66,24 @@ public class BattleEvent extends GameEvent {
         if (returnValues == null) {
             return null;
         }
+        Enemy enemy = this.enemy;
         
-        List<String> messages = returnValues.getMessages();
-        
-        if (super.commands != null && !this.playerTurn) {
-            attackPlayer(returnValues);
-        } 
+        if (super.commands != null) {
+            if (enemy.isDead()) {
+                setEventImage(this.enemy.getDeathImage());
+                returnValues.getMessages().add(this.enemy.getName() + " is dead.");
+                super.commands.clear();
+                super.commands.add(new Continue());
+                
+            } else if (!enemy.isDead() && !this.playerTurn) {
+                attackPlayer(returnValues);
+            }
+        }
         return returnValues;
     }
     
     /**
-     * Suoritetaan pelaajan vuoron päättyessä. Muokkaa tapahtumaan liittyvää palautusoliota sen perusteella,
+     * Vihollinen iskee pelaajaa. Muokkaa tapahtumaan liittyvää palautusoliota sen perusteella,
      * että kuoleeko pelaaja iskusta vai ei.
      * @param returnValues Tapahtuman palatusarvo-olio
      */

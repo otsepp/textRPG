@@ -15,7 +15,7 @@ public class GoForward extends Command {
      * Luo uuden olion.
      */
     public GoForward() {
-        super("Go forward.",    
+        super("Go forward",    
                 new ArrayList(),    
                 new ArrayList()); 
     }
