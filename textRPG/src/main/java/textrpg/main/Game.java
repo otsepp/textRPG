@@ -3,6 +3,7 @@ package textrpg.main;
 
 import java.util.*;
 import textrpg.characters.Bandit;
+import textrpg.characters.Cyclops;
 import textrpg.characters.Goblin;
 import textrpg.characters.Player;
 import textrpg.event.GameEvent;
@@ -119,6 +120,7 @@ public class Game {
         events.addLast(new BattleEvent(this.player,  new Bandit()));
         events.addLast(new BattleEvent(this.player,  new Goblin()));
         events.addLast(new DruidEncounterEvent(this.player));
+        events.addLast(new BattleEvent(this.player,  new Cyclops()));
         events.addLast(new EndingEvent());
         
         return events;

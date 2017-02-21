@@ -11,7 +11,7 @@ public class Goblin extends Enemy {
     public Goblin() {
         super("Goblin");
         super.setBaseDamage(15);
-        super.setImage(image);
+        super.setImage(this.image);
     }
     
 }

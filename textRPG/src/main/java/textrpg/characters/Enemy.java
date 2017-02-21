@@ -19,6 +19,10 @@ public abstract class Enemy extends GameCharacter {
         super(name);
     }
     
+    public Enemy(String name, int maxHealth) {
+        super(name, maxHealth);
+    }
+    
     /**
      * Asettaa hahmoon liittyvän kuvan UI:ta varten.
      * @param image Tavallinen vihollisen kuva
