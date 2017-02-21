@@ -8,7 +8,7 @@ import textrpg.characters.Player;
 import textrpg.event.GameEvent;
 import textrpg.event.GameEventReturnValues;
 import textrpg.event.battle.BattleEvent;
-import textrpg.event.druid.DruidEncounter;
+import textrpg.event.druid.DruidEncounterEvent;
 import textrpg.event.ending.EndingEvent;
 import textrpg.event.straightpath.StraightPathEvent;
 
@@ -118,7 +118,7 @@ public class Game {
         events.addLast(new StraightPathEvent());
         events.addLast(new BattleEvent(this.player,  new Bandit()));
         events.addLast(new BattleEvent(this.player,  new Goblin()));
-        events.addLast(new DruidEncounter(this.player));
+        events.addLast(new DruidEncounterEvent(this.player));
         events.addLast(new EndingEvent());
         
         return events;
