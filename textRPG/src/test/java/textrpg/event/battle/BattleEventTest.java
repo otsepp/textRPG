@@ -5,11 +5,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import textrpg.characters.Enemy;
+import textrpg.characters.Bandit;
 import textrpg.characters.Player;
 import textrpg.command.Command;
 import textrpg.command.Continue;
-import textrpg.event.GameEventReturnValues;
 
 public class BattleEventTest {
     
@@ -21,7 +20,7 @@ public class BattleEventTest {
     
     @Before
     public void setUp() {
-        this.event = new BattleEvent(new Player("Tester"), new Enemy("Tester's enemy"));
+        this.event = new BattleEvent(new Player("Tester"), new Bandit());
     }
 
     

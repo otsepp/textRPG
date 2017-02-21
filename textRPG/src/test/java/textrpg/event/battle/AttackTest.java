@@ -3,11 +3,9 @@ package textrpg.event.battle;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
+import textrpg.characters.Bandit;
 import textrpg.characters.Enemy;
 import textrpg.characters.Player;
-import textrpg.command.Command;
-import textrpg.command.CommandReturnValues;
-import textrpg.command.Continue;
 
 public class AttackTest {
     
@@ -18,7 +16,7 @@ public class AttackTest {
     
     @Before
     public void setUp() {
-        BattleEvent battleEvent = new BattleEvent(new Player("Tester"), new Enemy("Tester's enemy"));
+        BattleEvent battleEvent = new BattleEvent(new Player("Tester"), new Bandit());
         this.attack = new Attack(battleEvent);
     }
     

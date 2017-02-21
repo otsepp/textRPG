@@ -4,7 +4,7 @@ package textrpg.main;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import textrpg.characters.Enemy;
+import textrpg.characters.Bandit;
 import textrpg.characters.Player;
 import textrpg.command.Command;
 import textrpg.event.battle.BattleEvent;
@@ -116,7 +116,7 @@ public class GameText {
      */
     public void createEvents() {
         this.events.add(new StraightPathEvent());
-        this.events.add(new BattleEvent(this.player, new Enemy("Bandit")));
+        this.events.add(new BattleEvent(this.player, new Bandit()));
         this.events.add(new EndingEvent());
     }
 

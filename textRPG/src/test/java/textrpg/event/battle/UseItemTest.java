@@ -1,12 +1,10 @@
 
 package textrpg.event.battle;
 
-import textrpg.event.battle.UseItem;
-import textrpg.event.battle.BattleEvent;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
-import textrpg.characters.Enemy;
+import textrpg.characters.Bandit;
 import textrpg.characters.Player;
 import textrpg.items.HealthPotion;
 import textrpg.items.Inventory;
@@ -22,7 +20,7 @@ public class UseItemTest {
     
     @Before
     public void setUp() {
-        BattleEvent battle = new BattleEvent(new Player("Tester"), new Enemy("Tester's enemy"));
+        BattleEvent battle = new BattleEvent(new Player("Tester"), new Bandit());
         
         Inventory inventory = battle.getPlayer().getInventory();
         Item item = new HealthPotion(inventory);

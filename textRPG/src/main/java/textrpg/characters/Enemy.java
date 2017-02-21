@@ -6,10 +6,10 @@ import javax.swing.ImageIcon;
 /**
  * Kuvaa vihollishahmoa.
  */
-public class Enemy extends GameCharacter {
+public abstract class Enemy extends GameCharacter {
     
     private ImageIcon image;
-    private ImageIcon deathImage;
+    private final ImageIcon deathImage = new ImageIcon(Enemy.class.getResource("/event_images/enemy_dead.png"));
 
     /**
      * Luo vihollisolion.
@@ -20,14 +20,14 @@ public class Enemy extends GameCharacter {
     }
     
     /**
-     * Asettaa hahmoon liittyvät kuvat UI:ta varten.
+     * Asettaa hahmoon liittyvän kuvan UI:ta varten.
      * @param image Tavallinen vihollisen kuva
-     * @param deathImage Vihollisen kuva tämän kuoleman jälkeen
      */
-    public void setImages(ImageIcon image, ImageIcon deathImage) {
+    public void setImage(ImageIcon image) {
         this.image = image;
-        this.deathImage = deathImage;
     }
+    
+    
     
     public ImageIcon getImage() {
         return this.image;

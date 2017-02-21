@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import textrpg.characters.Enemy;
+import textrpg.characters.Bandit;
 import textrpg.characters.Player;
 import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
@@ -19,7 +19,7 @@ public class SelectItemTest {
     
     @Before
     public void setUp() {
-        BattleEvent battleEvent = new BattleEvent(new Player("Tester"), new Enemy("Tester's enemy"));
+        BattleEvent battleEvent = new BattleEvent(new Player("Tester"), new Bandit());
         this.selectItem = new SelectItem(battleEvent);
     }
     

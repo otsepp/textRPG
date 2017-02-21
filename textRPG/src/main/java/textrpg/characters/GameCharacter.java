@@ -30,7 +30,7 @@ public abstract class GameCharacter {
         this.health = this.maxHealth;
         this.baseDamage = 10;
     }
-    
+
     
     public String getName() {
         return this.name;
