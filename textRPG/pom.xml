@@ -63,7 +63,7 @@
                     <param>textrpg.event.battle.*</param>
                     <param>textrpg.event.ending.*</param>
                     <param>textrpg.event.straightpath.*</param>
-                    
+                    <param>textrpg.event.druid.*</param>
                     <param>textrpg.items.Inventory</param>
                     <param>textrpg.main.Game</param>
                 </targetClasses>
