@@ -22,7 +22,6 @@ public class BattleEventTest {
     public void setUp() {
         this.event = new BattleEvent(new Player("Tester"), new Bandit());
     }
-
     
     @Test
     public void playerAndEnemyAreNotNull() {

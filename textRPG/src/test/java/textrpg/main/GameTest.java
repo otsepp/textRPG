@@ -31,7 +31,7 @@ public class GameTest {
     }
 
     @Test
-    public void executeCommandDeniesBadCommandId() {
+    public void executeCommandDeniesWrongCommandId() {
         assertEquals(true, this.game.executeCommand(this.game.getEvents().size()) == null );
         assertEquals(true, this.game.executeCommand(-1) == null);
     }
@@ -43,6 +43,29 @@ public class GameTest {
         assertEquals(GameStatus.GAME_CONTINUE, ret);
         ret = this.game.executeCommand(0);
         assertEquals(GameStatus.GAME_END, ret);
+    }
+    
+    @Test
+     public void settingUpNextEventWorksWhenManyEvents() {
+          createTestEvents();
+          StraightPathEvent anotherEvent = new StraightPathEvent();
+          this.game.getEvents().addLast(anotherEvent);
+          
+          GameStatus status = this.game.executeCommand(0);
+          status = this.game.executeCommand(0);
+          
+          assertEquals(GameStatus.GAME_CONTINUE, status);
+          assertEquals(true, this.game.getCurrentEvent() == anotherEvent);
+     }
+    
+    @Test
+    public void settingUpNextEventWorksWhenLastOne() {
+        createTestEvents();
+        
+       GameStatus status = this.game.executeCommand(0);
+       status = this.game.executeCommand(0);
+       
+       assertEquals(GameStatus.GAME_END, status);
     }
     
     private void createTestEvents() {

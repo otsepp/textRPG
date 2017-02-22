@@ -21,7 +21,6 @@ public class EndingEventTest {
         this.endEvent = new EndingEvent();
     }
     
-    
     @Test
     public void commandsAreCreated() {
         List<Command> commands = this.endEvent.getCommands();

@@ -4,7 +4,7 @@ package textrpg.characters;
 import javax.swing.ImageIcon;
 
 /**
- * Kuvaa vihollishahmoa.
+ * Abstrakti luokka, joka uvaa vihollishahmoa.
  */
 public abstract class Enemy extends GameCharacter {
     
@@ -19,6 +19,11 @@ public abstract class Enemy extends GameCharacter {
         super(name);
     }
     
+    /**
+     * Luo vihollisolion annetulla nimellä ja hp-määrällä.
+     * @param name Olion nimi
+     * @param maxHealth Olion max elämäpisteet
+     */
     public Enemy(String name, int maxHealth) {
         super(name, maxHealth);
     }

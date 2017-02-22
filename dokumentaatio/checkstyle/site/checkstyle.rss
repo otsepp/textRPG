@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 29,
+      <title>File: 38,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.characters.Character.java">textrpg/characters/Character.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.items.Inventory.java">textrpg/items/Inventory.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#textrpg.items.Inventory.java">textrpg/items/Inventory.java</a>
+                  <a href="${project.url}/checkstyle.html#textrpg.items.UsableOnEnemy.java">textrpg/items/UsableOnEnemy.java</a>
                 </td>
                 <td>
                   0
@@ -200,6 +200,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.druid.DruidEncounterEvent.java">textrpg/event/druid/DruidEncounterEvent.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#textrpg.ui.GameScreen.java">textrpg/ui/GameScreen.java</a>
                 </td>
                 <td>
@@ -214,7 +228,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.druid.ChooseBlessing.java">textrpg/event/druid/ChooseBlessing.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#textrpg.event.GameEventReturnValues.java">textrpg/event/GameEventReturnValues.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.items.UsableOnPlayer.java">textrpg/items/UsableOnPlayer.java</a>
                 </td>
                 <td>
                   0
@@ -312,6 +354,34 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.event.druid.ChooseHealing.java">textrpg/event/druid/ChooseHealing.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.characters.GameCharacter.java">textrpg/characters/GameCharacter.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#textrpg.characters.Enemy.java">textrpg/characters/Enemy.java</a>
                 </td>
                 <td>
@@ -327,6 +397,34 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#textrpg.ui.MenuScreen.java">textrpg/ui/MenuScreen.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.characters.Cyclops.java">textrpg/characters/Cyclops.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.items.Bomb.java">textrpg/items/Bomb.java</a>
                 </td>
                 <td>
                   0
@@ -424,7 +522,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.characters.Bandit.java">textrpg/characters/Bandit.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#textrpg.event.battle.SelectItem.java">textrpg/event/battle/SelectItem.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#textrpg.characters.Goblin.java">textrpg/characters/Goblin.java</a>
                 </td>
                 <td>
                   0

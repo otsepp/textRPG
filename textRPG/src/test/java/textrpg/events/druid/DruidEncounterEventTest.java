@@ -1,39 +1,47 @@
 
-package textrpg.event.straightpath;
+package textrpg.events.druid;
 
 import java.util.List;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import textrpg.characters.Player;
 import textrpg.command.Command;
 import textrpg.command.Continue;
 import textrpg.event.GameEventReturnValues;
+import textrpg.event.druid.DruidEncounterEvent;
 
-
-public class StraightPathEventTest {
+public class DruidEncounterEventTest {
     
-    private StraightPathEvent event;
-    
-    public StraightPathEventTest() {
+    public DruidEncounterEventTest() {
     }
+    private DruidEncounterEvent event;
     
     @Before
     public void setUp() {
-        this.event = new StraightPathEvent();
+        Player player = new Player("Tester");
+        event = new DruidEncounterEvent(player);
     }
     
-
+    @Test
+    public void playerIsNotNull() {
+        assertEquals(true, this.event.getPlayer() != null);
+    }
+    
+    
     @Test
     public void commandsAreCreated() {
         List<Command> commands = this.event.getCommands();
-        assertEquals(false, commands.isEmpty());
+        assertEquals(2, commands.size());
+        for (Command c : commands) {
+            assertEquals(true, c != null);
+        }
     }
     
     @Test
     public void initiateEventDeniesWrongInput() {
         assertEquals(null, this.event.initiateEvent(-1));
-        int outOfBoundsIndex = event.getCommands().size();
-        assertEquals(null, this.event.initiateEvent(outOfBoundsIndex));
+        assertEquals(null, this.event.initiateEvent(2));
     }
     
     @Test

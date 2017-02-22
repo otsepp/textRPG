@@ -3,11 +3,17 @@ package textrpg.items;
 
 import textrpg.characters.GameCharacter;
 
-
-public class Bomb extends Item implements Usable, UsableOnEnemy{
-     private final int damageAmount = 80;
-     private Inventory inventory;
+/**
+ * Pommi, jonka voi käyttää viholliseen. Aiheuttaa suuren määrän vahinkoa.
+ */
+public class Bomb extends Item implements Usable, UsableOnEnemy {
+    private final int damageAmount = 80;
+    private Inventory inventory;
     
+     /**
+      * Luo uuden olion.
+      * @param inventory Reppu, johon uusi pommi lisätään.
+      */
     public Bomb(Inventory inventory) {
         super("Bomb");
         this.inventory = inventory;

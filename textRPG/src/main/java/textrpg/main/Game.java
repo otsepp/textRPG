@@ -61,6 +61,7 @@ public class Game {
             return null;
         }
         if (this.player.isDead()) {
+            System.out.println("clearing");
             this.events.clear();
         }
         if (!returnValues.getEventContinues()) {

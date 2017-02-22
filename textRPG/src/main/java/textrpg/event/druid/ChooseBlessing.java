@@ -7,10 +7,17 @@ import textrpg.command.Command;
 import textrpg.command.CommandReturnValues;
 import textrpg.command.Continue;
 
+/**
+ * Komento kasvattaa pelaajan baseDamage-kentän arvoa 10:llä.
+ */
 public class ChooseBlessing extends Command {
     
     private Player player;
     
+    /**
+     * Luo uuden olion. 
+     * @param player Tapahtumaan liittyvä pelaaja
+     */
     public ChooseBlessing(Player player) {
         super("Choose blessing", 
                 new ArrayList(),
@@ -28,6 +35,10 @@ public class ChooseBlessing extends Command {
         super.messages.add(("Base damage of "  + this.player.getName() + " has increased by 10."));
         super.newCommands.add(new Continue());
         return new CommandReturnValues(super.messages, super.newCommands);
+    }
+    
+    public Player getPlayer() {
+        return this.player;
     }
     
 }
