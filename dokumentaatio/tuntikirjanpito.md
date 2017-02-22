@@ -7,4 +7,6 @@ Päivä | Tunnit | Kuvaus
 7.2.2017 | 7h | lisätty mahdollisuus käyttää tavaroita pelaajan repusta taistelun aikana, rakennemuutoksia , testejä
 8.2.2017 | 1h | päivitys Inventory-luokkaan (list -> map). Tällä viikolla en saanut paljon aikaiseksi, sillä olen ollut koko viikon hyvin kipeänä.
 14.2.2017 | 5h | Käyttöliittymä alkuun
-15.2.2017| 12h | Käyttöliittymä loppuun, Game-luokka, testejä, dokumentaatio
+15.2.2017 | 12h | Käyttöliittymä loppuun, Game-luokka, testejä, dokumentaatio
+21.2.2017 | 4h | Tavaran käyttäminen viholliseen, uusia tapahtumia
+22.2.2017 | 1.5h | Testejä ja dokumentaatiota 
