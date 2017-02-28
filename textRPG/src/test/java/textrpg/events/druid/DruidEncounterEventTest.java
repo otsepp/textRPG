@@ -23,11 +23,11 @@ public class DruidEncounterEventTest {
         event = new DruidEncounterEvent(player);
     }
     
+    
     @Test
     public void playerIsNotNull() {
         assertEquals(true, this.event.getPlayer() != null);
     }
-    
     
     @Test
     public void commandsAreCreated() {
@@ -41,7 +41,7 @@ public class DruidEncounterEventTest {
     @Test
     public void initiateEventDeniesWrongInput() {
         assertEquals(null, this.event.initiateEvent(-1));
-        assertEquals(null, this.event.initiateEvent(2));
+        assertEquals(null, this.event.initiateEvent(this.event.getCommands().size()));
     }
     
     @Test

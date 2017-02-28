@@ -28,7 +28,7 @@ public class InventoryTest {
     @Test
     public void addingUsableItemsWorks() {
         Map<Usable, Integer> usables = this.inventory.getUsableItems();
-        usables.clear();
+        this.inventory.removeAllUsableItems();
         
         HealthPotion potion = new HealthPotion(this.inventory);
         this.inventory.addUsableItem(potion);
@@ -47,10 +47,11 @@ public class InventoryTest {
 //    @Test
     public void removingUsableItemsWorks() {
         Map<Usable, Integer> usables = this.inventory.getUsableItems();
+        
         this.inventory.removeAllUsableItems();
         assertEquals(0, usables.size());
         
-        //adding some filler
+        
         HealthPotion potion = new HealthPotion(this.inventory);
         this.inventory.addUsableItem(potion);
         this.inventory.addUsableItem(potion);

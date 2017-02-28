@@ -21,18 +21,18 @@ public class EndingEventTest {
         this.endEvent = new EndingEvent();
     }
     
+    
     @Test
     public void commandsAreCreated() {
         List<Command> commands = this.endEvent.getCommands();
-        assertEquals(1, commands.size());
+        assertEquals(false, commands.isEmpty());
         assertEquals(true, commands.get(0) != null);
     }
-    
     
     @Test
     public void initiateEventDeniesWrongInput() {
         assertEquals(null, this.endEvent.initiateEvent(-1));
-        assertEquals(null, this.endEvent.initiateEvent(1));
+        assertEquals(null, this.endEvent.initiateEvent(this.endEvent.getCommands().size()));
     }
     
     @Test
@@ -45,7 +45,7 @@ public class EndingEventTest {
         assertEquals(true, newCommand instanceof Continue);
         
         List<String> messages = ret.getMessages();
-        assertEquals(1, messages.size());
+        assertEquals(false, messages.isEmpty());
     }
     
 }

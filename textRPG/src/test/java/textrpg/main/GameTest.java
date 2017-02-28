@@ -21,7 +21,7 @@ public class GameTest {
     
     
     @Test
-    public void constructorSetGameInDefaultState() {
+    public void constructorSetsGameInDefaultState() {
         assertEquals(true, this.game.getPlayer() != null);
         assertEquals(false, this.game.getEvents().isEmpty());
         assertEquals(true, this.game.getCurrentEvent().equals(this.game.getEvents().peek()));

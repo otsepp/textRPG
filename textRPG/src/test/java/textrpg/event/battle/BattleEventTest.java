@@ -9,6 +9,7 @@ import textrpg.characters.Bandit;
 import textrpg.characters.Player;
 import textrpg.command.Command;
 import textrpg.command.Continue;
+import textrpg.event.GameEventReturnValues;
 
 public class BattleEventTest {
     
@@ -16,7 +17,6 @@ public class BattleEventTest {
     }
     
     private BattleEvent event;
-    private final int commandsAmount = 2;
     
     @Before
     public void setUp() {
@@ -33,7 +33,6 @@ public class BattleEventTest {
     public void commandsAreCreated() {
         List<Command> commands = this.event.getCommands();
         
-        assertEquals(this.commandsAmount, commands.size());
         for (Command c : commands) {
             assertEquals(true, c != null);
         }
@@ -42,14 +41,13 @@ public class BattleEventTest {
     @Test
     public void initiateEventDeniesWrongInput() {
         assertEquals(null, this.event.initiateEvent(-1));
-        assertEquals(null, this.event.initiateEvent(commandsAmount));
+        assertEquals(null, this.event.initiateEvent(this.event.getCommands().size()));
     }
     
     @Test
     public void battleContinuesWhenNeitherDies() {
-        this.event.initiateEvent(0);
-        
-        assertEquals(true, this.event.getCommands().size() > 1);
+        GameEventReturnValues returnValues = this.event.initiateEvent(0);
+        assertEquals(true, returnValues.getEventContinues());
     }
     
     @Test

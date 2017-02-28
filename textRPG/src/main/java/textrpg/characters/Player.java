@@ -1,8 +1,6 @@
 
 package textrpg.characters;
 
-import textrpg.items.Bomb;
-import textrpg.items.HealthPotion;
 import textrpg.items.Inventory;
 
 public class Player extends GameCharacter {
@@ -37,5 +35,4 @@ public class Player extends GameCharacter {
         this.totalDamage = super.getBaseDamage() + weaponDamage;
     }
     
-   
 }
