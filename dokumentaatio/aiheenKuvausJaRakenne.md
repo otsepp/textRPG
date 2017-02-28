@@ -8,6 +8,6 @@ Yhteenoton kautta pelaaja joutuu taisteluun vihollisen kanssa. Taistelut ovat vu
 vuorollaan pelaaja valitsee taistelukomennon.
 Pelaajalla on kokoelma tavaroita, joita h‰n voi k‰ytt‰‰ taistelun aikana. 
 
-[Ohjelman rakenne](dokumentaatio/rakenne.md)
+[Ohjelman rakenne](rakenne.md)
 
 
