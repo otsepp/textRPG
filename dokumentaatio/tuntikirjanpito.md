@@ -10,3 +10,4 @@ Päivä | Tunnit | Kuvaus
 15.2.2017 | 12h | Käyttöliittymä loppuun, Game-luokka, testejä, dokumentaatio
 21.2.2017 | 4h | Tavaran käyttäminen viholliseen, uusia tapahtumia
 22.2.2017 | 1.5h | Testejä ja dokumentaatiota 
+28.2.2017 | 1h | siivoamista, viimeiset muutokset
